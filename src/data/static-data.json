@@ -139,7 +139,8 @@
     "successText": "Recebemos sua solicitação. Em breve entraremos em contato.",
     "resendLabel": "Enviar outra solicitação",
     "errorFallback": "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.",
-    "whatsapp": { "number": "5500000000000", "label": "WhatsApp", "sublabel": "Resposta rápida" },
+    "whatsappCtaLabel": "Enviar no WhatsApp",
+    "whatsapp": { "number": "5579974007193", "label": "WhatsApp", "sublabel": "Resposta rápida" },
     "email": "contato@velnox.com.br",
     "instagram": { "handle": "velnox.ia", "label": "Instagram" }
   },
@@ -158,7 +159,8 @@
     "submittingLabel": "Enviando...",
     "successTitle": "Recebemos seu projeto!",
     "successText": "Vamos analisar os detalhes e retornar com uma proposta em breve.",
-    "errorFallback": "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp."
+    "errorFallback": "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.",
+    "whatsappCtaLabel": "Enviar no WhatsApp"
   },
   "footer": {
     "copyright": "© 2026 VELNOX.IA — A velocidade nunca dorme. Todos os direitos reservados."

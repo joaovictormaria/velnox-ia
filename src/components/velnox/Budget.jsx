@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Check, Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { Check, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
+import { buildWhatsappMessageUrl } from '@/lib/contact';
 import data from '@/data/static-data.json';
 
 const { budget, pricing, contact } = data;
@@ -98,7 +99,18 @@ export default function Budget() {
             <div className="flex flex-col items-center justify-center py-12 text-center">
               <CheckCircle2 className="w-16 h-16 text-neon-cyan mb-4" />
               <h3 className="font-display text-xl font-semibold mb-2">{budget.successTitle}</h3>
-              <p className="text-sm text-muted-foreground">{budget.successText}</p>
+              <p className="text-sm text-muted-foreground mb-6">{budget.successText}</p>
+              <a
+                href={buildWhatsappMessageUrl(
+                  form,
+                  selectedPlan ? [`Plano: ${selectedPlan.name} (${selectedPlan.price})`] : []
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all"
+              >
+                <MessageCircle className="w-4 h-4" /> {budget.whatsappCtaLabel}
+              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">

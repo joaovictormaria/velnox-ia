@@ -5,3 +5,18 @@ export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const CONTACT_EMAIL = data.contact.email;
 export const INSTAGRAM_HANDLE = data.contact.instagram.handle;
 export const INSTAGRAM_URL = `https://instagram.com/${INSTAGRAM_HANDLE}`;
+
+export function buildWhatsappMessageUrl(form, extraLines = []) {
+  const lines = [
+    `Olá! Meu nome é ${form.name}.`,
+    `E-mail: ${form.email}`,
+    form.phone && `Telefone: ${form.phone}`,
+    `Tipo de projeto: ${form.projectType}`,
+    ...extraLines,
+    '',
+    'Detalhes:',
+    form.message,
+  ].filter(Boolean);
+
+  return `${WHATSAPP_URL}?text=${encodeURIComponent(lines.join('\n'))}`;
+}

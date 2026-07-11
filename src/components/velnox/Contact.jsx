@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Instagram, Mail, Send, Loader2, CheckCircle2 } from 'lucide-react';
-import { WHATSAPP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, CONTACT_EMAIL } from '@/lib/contact';
+import { WHATSAPP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, CONTACT_EMAIL, buildWhatsappMessageUrl } from '@/lib/contact';
 import data from '@/data/static-data.json';
 
 const { contact } = data;
@@ -10,6 +10,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [sentForm, setSentForm] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -32,6 +33,7 @@ export default function Contact() {
       }
 
       setSuccess(true);
+      setSentForm(form);
       setForm({ name: '', email: '', phone: '', projectType: '', message: '' });
     } catch (err) {
       console.error('Failed to send contact form:', err);
@@ -57,7 +59,17 @@ export default function Contact() {
                 <CheckCircle2 className="w-16 h-16 text-neon-cyan mb-4" />
                 <h3 className="font-display text-xl font-semibold mb-2">{contact.successTitle}</h3>
                 <p className="text-sm text-muted-foreground mb-6">{contact.successText}</p>
-                <button onClick={() => setSuccess(false)} className="text-sm text-neon-cyan hover:underline">
+                {sentForm && (
+                  <a
+                    href={buildWhatsappMessageUrl(sentForm)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all mb-4"
+                  >
+                    <MessageCircle className="w-4 h-4" /> {contact.whatsappCtaLabel}
+                  </a>
+                )}
+                <button onClick={() => { setSuccess(false); setSentForm(null); }} className="text-sm text-neon-cyan hover:underline">
                   {contact.resendLabel}
                 </button>
               </div>
