@@ -29,10 +29,15 @@ export default function Budget() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = buildWhatsappMessageUrl(
-      form,
-      selectedPlan ? [`Plano: ${selectedPlan.name} (${selectedPlan.price})`] : []
-    );
+    const planLines = selectedPlan
+      ? [
+          `*Plano escolhido:* ${selectedPlan.name} (${selectedPlan.price})`,
+          `*Sobre o plano:* ${selectedPlan.description}`,
+          '*Recursos inclusos:*',
+          ...selectedPlan.features.map((feature) => `• ${feature}`),
+        ]
+      : [];
+    const url = buildWhatsappMessageUrl(form, planLines);
     window.open(url, '_blank', 'noopener,noreferrer');
     setSentWhatsappUrl(url);
     setSuccess(true);

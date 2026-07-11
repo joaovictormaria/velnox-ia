@@ -8,13 +8,15 @@ export const INSTAGRAM_URL = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 export function buildWhatsappMessageUrl(form, extraLines = []) {
   const lines = [
-    `Olá! Meu nome é ${form.name}.`,
-    `E-mail: ${form.email}`,
-    form.phone && `Telefone: ${form.phone}`,
-    `Tipo de projeto: ${form.projectType}`,
+    '*Nova solicitação — VELNOX.IA*',
+    '',
+    `*Nome:* ${form.name}`,
+    `*E-mail:* ${form.email}`,
+    form.phone && `*Telefone:* ${form.phone}`,
+    `*Tipo de projeto:* ${form.projectType}`,
     ...extraLines,
     '',
-    'Detalhes:',
+    '*Detalhes do projeto:*',
     form.message,
   ].filter(Boolean);
 
