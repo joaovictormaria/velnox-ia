@@ -8,16 +8,15 @@ export const INSTAGRAM_URL = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 export function buildWhatsappMessageUrl(form, extraLines = []) {
   const lines = [
-    '*Nova solicitação — VELNOX.IA*',
+    '⚡ *Novo contato — VELNOX.IA*',
     '',
-    `*Nome:* ${form.name}`,
-    `*E-mail:* ${form.email}`,
-    form.phone && `*Telefone:* ${form.phone}`,
-    `*Tipo de projeto:* ${form.projectType}`,
+    `🙋 ${form.name}`,
+    `📧 ${form.email}`,
+    form.phone && `📱 ${form.phone}`,
+    `📁 ${form.projectType}`,
     ...extraLines,
     '',
-    '*Detalhes do projeto:*',
-    form.message,
+    `💬 ${form.message}`,
   ].filter(Boolean);
 
   return `${WHATSAPP_URL}?text=${encodeURIComponent(lines.join('\n'))}`;
