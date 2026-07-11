@@ -52,19 +52,4 @@ export default [
       "react-hooks/rules-of-hooks": "error",
     },
   },
-  {
-    files: ["api/**/*.{js,mjs,cjs}"],
-    ...pluginJs.configs.recommended,
-    languageOptions: {
-      globals: globals.node,
-      parserOptions: {
-        ecmaVersion: 2022,
-        sourceType: "module",
-      },
-    },
-    plugins: {
-      "unused-imports": pluginUnusedImports,
-    },
-    rules: sharedRules,
-  },
 ];

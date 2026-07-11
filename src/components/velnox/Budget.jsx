@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Check, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Check, Send, CheckCircle2, MessageCircle } from 'lucide-react';
 import { buildWhatsappMessageUrl } from '@/lib/contact';
 import data from '@/data/static-data.json';
 
@@ -20,37 +20,22 @@ export default function Budget() {
     projectType: selectedPlan ? selectedPlan.projectType : '',
     message: '',
   });
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
+  const [sentWhatsappUrl, setSentWhatsappUrl] = useState('');
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-
-      if (!response.ok) {
-        throw new Error('Request failed');
-      }
-
-      setSuccess(true);
-    } catch (err) {
-      console.error('Failed to send budget request:', err);
-      setError(budget.errorFallback);
-    } finally {
-      setLoading(false);
-    }
+    const url = buildWhatsappMessageUrl(
+      form,
+      selectedPlan ? [`Plano: ${selectedPlan.name} (${selectedPlan.price})`] : []
+    );
+    window.open(url, '_blank', 'noopener,noreferrer');
+    setSentWhatsappUrl(url);
+    setSuccess(true);
   };
 
   return (
@@ -101,10 +86,7 @@ export default function Budget() {
               <h3 className="font-display text-xl font-semibold mb-2">{budget.successTitle}</h3>
               <p className="text-sm text-muted-foreground mb-6">{budget.successText}</p>
               <a
-                href={buildWhatsappMessageUrl(
-                  form,
-                  selectedPlan ? [`Plano: ${selectedPlan.name} (${selectedPlan.price})`] : []
-                )}
+                href={sentWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all"
@@ -183,18 +165,11 @@ export default function Budget() {
                 />
               </div>
 
-              {error && <p className="text-sm text-destructive">{error}</p>}
-
               <button
                 type="submit"
-                disabled={loading}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all"
               >
-                {loading ? (
-                  <><Loader2 className="w-5 h-5 animate-spin" /> {budget.submittingLabel}</>
-                ) : (
-                  <>{budget.submitLabel} <Send className="w-4 h-4" /></>
-                )}
+                {budget.submitLabel} <Send className="w-4 h-4" />
               </button>
             </form>
           )}

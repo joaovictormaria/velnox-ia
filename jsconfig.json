@@ -17,5 +17,5 @@
     "types": []
   },
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "api"]
+  "exclude": ["node_modules", "dist"]
 }

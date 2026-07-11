@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Instagram, Mail, Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { MessageCircle, Instagram, Mail, Send, CheckCircle2 } from 'lucide-react';
 import { WHATSAPP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, CONTACT_EMAIL, buildWhatsappMessageUrl } from '@/lib/contact';
 import data from '@/data/static-data.json';
 
@@ -7,40 +7,19 @@ const { contact } = data;
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', projectType: '', message: '' });
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
   const [sentForm, setSentForm] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-
-      if (!response.ok) {
-        throw new Error('Request failed');
-      }
-
-      setSuccess(true);
-      setSentForm(form);
-      setForm({ name: '', email: '', phone: '', projectType: '', message: '' });
-    } catch (err) {
-      console.error('Failed to send contact form:', err);
-      setError(contact.errorFallback);
-    } finally {
-      setLoading(false);
-    }
+    window.open(buildWhatsappMessageUrl(form), '_blank', 'noopener,noreferrer');
+    setSentForm(form);
+    setSuccess(true);
+    setForm({ name: '', email: '', phone: '', projectType: '', message: '' });
   };
 
   return (
@@ -144,18 +123,11 @@ export default function Contact() {
                   />
                 </div>
 
-                {error && <p className="text-sm text-destructive">{error}</p>}
-
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all"
                 >
-                  {loading ? (
-                    <><Loader2 className="w-5 h-5 animate-spin" /> {contact.submittingLabel}</>
-                  ) : (
-                    <>{contact.submitLabel} <Send className="w-4 h-4" /></>
-                  )}
+                  {contact.submitLabel} <Send className="w-4 h-4" />
                 </button>
               </form>
             )}

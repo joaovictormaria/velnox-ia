@@ -1,6 +1,6 @@
 # Velnox.IA
 
-Landing page — React 18 + Vite + Tailwind CSS.
+Landing page — React 18 + Vite + Tailwind CSS. Sem backend: formulário de contato/orçamento abre o WhatsApp com a mensagem pronta.
 
 ## Desenvolvimento
 
@@ -25,15 +25,8 @@ npm run typecheck
 
 ## Deploy (Vercel)
 
-1. Importe o repositório na Vercel — framework Vite é detectado automaticamente (`vercel.json` já define `buildCommand`/`outputDirectory` e o rewrite de SPA).
-2. Configure as env vars do formulário de contato (Project Settings → Environment Variables):
-   - `RESEND_API_KEY` — chave da conta [Resend](https://resend.com/).
-   - `CONTACT_TO_EMAIL` — e-mail que recebe os pedidos de orçamento.
-   - `CONTACT_FROM_EMAIL` — opcional, remetente verificado no Resend.
-3. Deploy.
-
-O formulário de contato em `/contato` faz `POST /api/contact`, que é uma função serverless (`api/contact.js`) rodando na própria Vercel.
+Zero-config: importe o repositório na Vercel, framework Vite é detectado automaticamente (`vercel.json` já define `buildCommand`/`outputDirectory` e o rewrite de SPA). Nenhuma env var é necessária.
 
 ## Antes de publicar
 
-Edite `src/lib/contact.js` com o WhatsApp/e-mail/Instagram reais — hoje tem valores placeholder.
+Confira `src/data/static-data.json` → `contact.whatsapp.number` (formato `55DDNNNNNNNNN`, sem espaços/símbolos) e o e-mail/Instagram — é a fonte única desses dados.

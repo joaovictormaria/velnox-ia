@@ -133,13 +133,11 @@
       "Integrações API",
       "Outro"
     ],
-    "submitLabel": "Solicitar Orçamento",
-    "submittingLabel": "Enviando...",
-    "successTitle": "Orçamento enviado!",
-    "successText": "Recebemos sua solicitação. Em breve entraremos em contato.",
-    "resendLabel": "Enviar outra solicitação",
-    "errorFallback": "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.",
-    "whatsappCtaLabel": "Enviar no WhatsApp",
+    "submitLabel": "Continuar no WhatsApp",
+    "successTitle": "Quase lá!",
+    "successText": "Abrimos o WhatsApp com sua mensagem pronta. Se não abriu automaticamente, clique no botão abaixo.",
+    "resendLabel": "Preencher novamente",
+    "whatsappCtaLabel": "Abrir WhatsApp",
     "whatsapp": { "number": "5579974007193", "label": "WhatsApp", "sublabel": "Resposta rápida" },
     "email": "contato@velnox.com.br",
     "instagram": { "handle": "velnox.ia", "label": "Instagram" }
@@ -155,12 +153,10 @@
     "backToPlans": "Ver planos",
     "messageLabel": "Conte mais sobre o que você quer nesse projeto",
     "messagePlaceholder": "Funcionalidades específicas, referências, prazo desejado, o que mais achar importante...",
-    "submitLabel": "Enviar detalhes",
-    "submittingLabel": "Enviando...",
-    "successTitle": "Recebemos seu projeto!",
-    "successText": "Vamos analisar os detalhes e retornar com uma proposta em breve.",
-    "errorFallback": "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.",
-    "whatsappCtaLabel": "Enviar no WhatsApp"
+    "submitLabel": "Continuar no WhatsApp",
+    "successTitle": "Quase lá!",
+    "successText": "Abrimos o WhatsApp com os detalhes do seu projeto prontos. Se não abriu automaticamente, clique no botão abaixo.",
+    "whatsappCtaLabel": "Abrir WhatsApp"
   },
   "footer": {
     "copyright": "© 2026 VELNOX.IA — A velocidade nunca dorme. Todos os direitos reservados."
