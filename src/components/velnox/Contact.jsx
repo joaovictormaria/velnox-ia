@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Instagram, Mail, Send, Loader2, CheckCircle2 } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { WHATSAPP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, CONTACT_EMAIL } from '@/lib/contact';
 
 const projectTypes = [
   'Landing Page (Launch)',
@@ -11,8 +11,6 @@ const projectTypes = [
   'Integrações API',
   'Outro',
 ];
-
-const CONTACT_EMAIL = 'contato@velnox.com.br';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', projectType: '', message: '' });
@@ -30,30 +28,20 @@ export default function Contact() {
     setError('');
 
     try {
-      const body = `
-<h2 style="font-family: sans-serif; color: #050810;">Novo orçamento solicitado — VELNOX.IA</h2>
-<table style="font-family: sans-serif; font-size: 14px; color: #333; border-collapse: collapse;">
-  <tr><td style="padding: 6px 0; font-weight: bold;">Nome:</td><td style="padding: 6px 0;">${form.name}</td></tr>
-  <tr><td style="padding: 6px 0; font-weight: bold;">E-mail:</td><td style="padding: 6px 0;">${form.email}</td></tr>
-  <tr><td style="padding: 6px 0; font-weight: bold;">Telefone:</td><td style="padding: 6px 0;">${form.phone || '—'}</td></tr>
-  <tr><td style="padding: 6px 0; font-weight: bold;">Tipo de projeto:</td><td style="padding: 6px 0;">${form.projectType || '—'}</td></tr>
-</table>
-<h3 style="font-family: sans-serif; font-size: 14px; color: #050810; margin-top: 20px;">Mensagem:</h3>
-<p style="font-family: sans-serif; font-size: 14px; color: #333; white-space: pre-wrap;">${form.message}</p>
-<hr style="margin-top: 24px; border: none; border-top: 1px solid #eee;">
-<p style="font-family: sans-serif; font-size: 12px; color: #999;">Enviado pelo site VELNOX.IA — A velocidade nunca dorme.</p>
-`;
-
-      await base44.integrations.Core.SendEmail({
-        to: CONTACT_EMAIL,
-        subject: `Novo orçamento — ${form.name} (VELNOX.IA)`,
-        body,
-        from_name: 'Site VELNOX.IA',
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       });
+
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
 
       setSuccess(true);
       setForm({ name: '', email: '', phone: '', projectType: '', message: '' });
     } catch (err) {
+      console.error('Failed to send contact form:', err);
       setError('Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.');
     } finally {
       setLoading(false);
@@ -170,7 +158,7 @@ export default function Contact() {
 
           {/* Contact info */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="glass-card p-5 rounded-2xl flex items-center gap-4 hover:border-neon-cyan/40 transition-all group">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="glass-card p-5 rounded-2xl flex items-center gap-4 hover:border-neon-cyan/40 transition-all group">
               <div className="w-11 h-11 rounded-xl bg-neon-cyan/10 flex items-center justify-center group-hover:bg-neon-cyan/20 transition-all shrink-0">
                 <MessageCircle className="w-5 h-5 text-neon-cyan" />
               </div>
@@ -180,23 +168,23 @@ export default function Contact() {
               </div>
             </a>
 
-            <a href="https://instagram.com/velnox.ia" target="_blank" rel="noopener noreferrer" className="glass-card p-5 rounded-2xl flex items-center gap-4 hover:border-neon-magenta/40 transition-all group">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="glass-card p-5 rounded-2xl flex items-center gap-4 hover:border-neon-magenta/40 transition-all group">
               <div className="w-11 h-11 rounded-xl bg-neon-magenta/10 flex items-center justify-center group-hover:bg-neon-magenta/20 transition-all shrink-0">
                 <Instagram className="w-5 h-5 text-neon-magenta" />
               </div>
               <div>
                 <div className="text-sm font-semibold">Instagram</div>
-                <div className="text-xs text-muted-foreground">@velnox.ia</div>
+                <div className="text-xs text-muted-foreground">@{INSTAGRAM_HANDLE}</div>
               </div>
             </a>
 
-            <a href="mailto:contato@velnox.com.br" className="glass-card p-5 rounded-2xl flex items-center gap-4 hover:border-neon-cyan/40 transition-all group">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="glass-card p-5 rounded-2xl flex items-center gap-4 hover:border-neon-cyan/40 transition-all group">
               <div className="w-11 h-11 rounded-xl bg-neon-cyan/10 flex items-center justify-center group-hover:bg-neon-cyan/20 transition-all shrink-0">
                 <Mail className="w-5 h-5 text-neon-cyan" />
               </div>
               <div>
                 <div className="text-sm font-semibold">E-mail</div>
-                <div className="text-xs text-muted-foreground">contato@velnox.com.br</div>
+                <div className="text-xs text-muted-foreground">{CONTACT_EMAIL}</div>
               </div>
             </a>
           </div>

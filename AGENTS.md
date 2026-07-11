@@ -1,34 +1,35 @@
 # AGENTS.md
 
-## Project Context
+## Project
 
-This is a Base44 app repository. Treat it as user-owned application code, keep changes focused on the user's request, and preserve existing project conventions.
+Velnox.IA — landing page de agência de desenvolvimento web. React 18 + Vite + Tailwind, sem backend próprio além de uma função serverless para o formulário de contato.
 
-Start with `README.md` for local setup, environment variables, and publish workflow.
+## Stack
 
-## Base44 References
+- `src/App.jsx`: rotas (react-router-dom). Só duas: `/` (Home) e `*` (NotFound).
+- `src/pages/Home.jsx`: monta a landing a partir dos componentes em `src/components/velnox/`.
+- `src/components/velnox/`: seções da página (Navbar, Hero, Services, Pricing, About, FAQ, Contact, Footer).
+- `src/lib/contact.js`: fonte única de WhatsApp/e-mail/Instagram usados no site.
+- `api/contact.js`: função serverless da Vercel que recebe o POST do formulário de contato e envia e-mail via Resend.
 
-- CLI overview: https://docs.base44.com/developers/references/cli/get-started/overview.md
-- Agent skills: https://docs.base44.com/developers/backend/overview/skills.md
+## Comandos
 
-If your agent supports Agent Skills, install or update Base44 skills before Base44-specific work:
+- `npm run dev` — servidor local.
+- `npm run build` — build de produção (`dist/`).
+- `npm run lint` — ESLint.
+- `npm run typecheck` — checagem de tipos via `tsc` sobre os `.jsx`/`.js` (jsconfig).
 
-```bash
-npx skills add base44/skills
-```
+## Deploy (Vercel)
 
-## Key Files
+Zero-config: a Vercel detecta Vite automaticamente e `vercel.json` cuida do rewrite de SPA + da função em `api/`.
 
-- `src/`: frontend application source.
-- `src/api/base44Client.js`: frontend Base44 SDK client.
-- `vite.config.js`: Vite config and Base44 Vite plugin setup.
-- `.env.local`: local-only environment values; never commit secrets.
+Variáveis de ambiente necessárias na Vercel (Project Settings → Environment Variables):
 
-## Working Notes
+- `RESEND_API_KEY` — chave da conta Resend (resend.com), usada por `api/contact.js`.
+- `CONTACT_TO_EMAIL` — e-mail que recebe os orçamentos.
+- `CONTACT_FROM_EMAIL` — opcional; remetente verificado no Resend. Sem isso, usa o domínio sandbox `onboarding@resend.dev` (só funciona pra testar, não entrega em produção pra qualquer destinatário).
 
-- Use `base44 dev` as the default local development command when you need the local Base44 backend. It can run the backend and frontend together.
-- When docs or code mention the frontend being started automatically, that usually means the Base44 project config includes `site.serveCommand`, for example `"serveCommand": "npm run dev"` in `base44/config.jsonc`.
-- Use `npm run dev` only for frontend-only work against the hosted Base44 backend.
-- Prefer the existing Base44 CLI workflow over adding new npm scripts for Base44-specific tasks.
-- Reuse the existing SDK client and Vite plugin patterns before adding new Base44 integration paths.
-- Run the relevant checks from `package.json` before finishing code changes.
+## Working notes
+
+- Antes de publicar, trocar os valores placeholder em `src/lib/contact.js` (número de WhatsApp e afins) pelos reais.
+- `src/vite-env.d.ts` declara os módulos de imagem (`*.png` etc) pro `tsc` não quebrar em imports de asset.

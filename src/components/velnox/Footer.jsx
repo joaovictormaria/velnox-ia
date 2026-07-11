@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram, MessageCircle, Mail } from 'lucide-react';
+import { WHATSAPP_URL, INSTAGRAM_URL, CONTACT_EMAIL } from '@/lib/contact';
 
 export default function Footer() {
   return (
@@ -14,13 +15,13 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-cyan hover:border-neon-cyan/50 transition-all">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-cyan hover:border-neon-cyan/50 transition-all">
               <MessageCircle className="w-5 h-5" />
             </a>
-            <a href="https://instagram.com/velnox.ia" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-magenta hover:border-neon-magenta/50 transition-all">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-magenta hover:border-neon-magenta/50 transition-all">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="mailto:contato@velnox.com.br" className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-cyan hover:border-neon-cyan/50 transition-all">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-cyan hover:border-neon-cyan/50 transition-all">
               <Mail className="w-5 h-5" />
             </a>
           </div>

@@ -1,8 +1,5 @@
 name: CI
 
-# Runs on the template repo's own PRs (incl. Dependabot) so dependency bumps are
-# verified before auto-merge. NOTE: apper strips `.github/` at app-seed time, so this
-# workflow only ever runs here — it must stay green on the bare template.
 on:
   pull_request:
   push:
@@ -26,6 +23,9 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
 
       - name: Build
         run: npm run build
