@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-6">
       <div className="text-center space-y-6">
-        <h1 className="font-display text-7xl font-bold gradient-text">404</h1>
+        <h1 className="font-display text-7xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">404</h1>
         <p className="text-muted-foreground">Esta página não existe.</p>
         <Link
           to="/"

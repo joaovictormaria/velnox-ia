@@ -18,13 +18,13 @@ export default function Pricing() {
     <section id="planos" className="relative py-24 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Planos & <span className="gradient-text">Preços</span></h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Planos & <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">Preços</span></h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">Escolha o plano ideal para o seu projeto. Cada um é personalizado conforme sua necessidade.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {plans.map((plan) => (
-            <div key={plan.name} className={`relative p-6 rounded-2xl transition-all ${plan.highlighted ? 'glass-card-highlight border-neon-magenta/40' : 'glass-card'}`}>
+            <div key={plan.name} className={`relative p-6 rounded-2xl transition-all border ${plan.highlighted ? 'bg-card/60 backdrop-blur-xl border-neon-magenta/40 shadow-[0_0_40px_rgba(0,255,255,0.06),0_0_80px_rgba(255,0,255,0.04)]' : 'bg-card/50 backdrop-blur-xl border-border'}`}>
               {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-neon-cyan to-neon-magenta text-background text-xs font-semibold">
                   Mais Popular
@@ -50,7 +50,7 @@ export default function Pricing() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {addons.map((addon) => (
-            <div key={addon.name} className="glass-card p-6 rounded-2xl flex gap-4">
+            <div key={addon.name} className="bg-card/50 backdrop-blur-xl border border-border p-6 rounded-2xl flex gap-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neon-cyan/20 to-neon-magenta/20 flex items-center justify-center shrink-0">
                 <addon.icon className="w-6 h-6 text-neon-magenta" />
               </div>

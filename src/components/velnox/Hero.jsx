@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-neon-cyan/20 blur-[120px] animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-neon-magenta/20 blur-[120px] animate-float" style={{ animationDelay: '2s' }} />
       </div>
-      <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+      <div className="absolute inset-0 opacity-30 bg-[linear-gradient(rgba(0,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.03)_1px,transparent_1px)] bg-[length:40px_40px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-16">
         <div className="relative mx-auto mt-24 w-full max-w-md md:max-w-lg lg:max-w-xl mb-1">
@@ -23,28 +23,25 @@ export default function Hero() {
             >
               <path
                 d="M0,150 C120,40 240,260 360,150 S600,40 720,150 S960,260 1080,150 S1320,40 1440,150 S1600,260 1600,150"
-                stroke="hsl(var(--neon-cyan))"
                 strokeWidth="2"
                 strokeLinecap="round"
                 opacity="0.55"
-                className="worm-trace"
+                className="stroke-neon-cyan animate-worm-flow [stroke-dasharray:18_14]"
               />
               <path
                 d="M0,90 C140,220 260,-30 400,90 S660,220 800,90 S1060,-30 1200,90 S1460,220 1600,90"
-                stroke="hsl(var(--neon-magenta))"
                 strokeWidth="2"
                 strokeLinecap="round"
                 opacity="0.45"
-                className="worm-trace"
+                className="stroke-neon-magenta animate-worm-flow [stroke-dasharray:18_14]"
                 style={{ animationDelay: '-1.3s' }}
               />
               <path
                 d="M0,220 C160,110 300,330 440,220 S700,110 840,220 S1100,330 1240,220 S1500,110 1600,220"
-                stroke="hsl(var(--neon-cyan))"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 opacity="0.35"
-                className="worm-trace"
+                className="stroke-neon-cyan animate-worm-flow [stroke-dasharray:18_14]"
                 style={{ animationDelay: '-2.6s' }}
               />
             </svg>
@@ -52,22 +49,21 @@ export default function Hero() {
               src={veloxBoat}
               alt=""
               aria-hidden="true"
-              className="sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
-              style={{ animationDuration: '9s' }}
+              className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
             />
             <img
               src={veloxBoat}
               alt=""
               aria-hidden="true"
-              className="sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
-              style={{ animationDuration: '9s', animationDelay: '-3s' }}
+              className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
+              style={{ animationDelay: '-3s' }}
             />
             <img
               src={veloxBoat}
               alt=""
               aria-hidden="true"
-              className="sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
-              style={{ animationDuration: '9s', animationDelay: '-6s' }}
+              className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
+              style={{ animationDelay: '-6s' }}
             />
           </div>
           <div
@@ -103,15 +99,15 @@ export default function Hero() {
 
         <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
           <div>
-            <div className="font-display text-3xl font-bold gradient-text">3-5</div>
+            <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">3-5</div>
             <div className="text-sm text-muted-foreground mt-1">dias para lançar</div>
           </div>
           <div>
-            <div className="font-display text-3xl font-bold gradient-text">100%</div>
+            <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">100%</div>
             <div className="text-sm text-muted-foreground mt-1">responsivo</div>
           </div>
           <div>
-            <div className="font-display text-3xl font-bold gradient-text">24/7</div>
+            <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">24/7</div>
             <div className="text-sm text-muted-foreground mt-1">suporte dedicado</div>
           </div>
         </div>
