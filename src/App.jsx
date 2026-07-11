@@ -9,6 +9,7 @@ import PricingPage from '@/pages/Pricing';
 import AboutPage from '@/pages/About';
 import FAQPage from '@/pages/FAQ';
 import ContactPage from '@/pages/Contact';
+import BudgetPage from '@/pages/Budget';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contato" element={<ContactPage />} />
+          <Route path="/orcamento" element={<BudgetPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
