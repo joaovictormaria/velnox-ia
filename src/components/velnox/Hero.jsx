@@ -2,6 +2,9 @@ import React from 'react';
 import { ArrowRight, Rocket, Zap } from 'lucide-react';
 import velnoxLogo from '@/images/velox.ia_logo.png';
 import veloxBoat from '@/images/VELOX-removebg-preview.png';
+import data from '@/data/static-data.json';
+
+const { hero } = data;
 
 export default function Hero() {
   return (
@@ -81,35 +84,29 @@ export default function Hero() {
 
         <div className="mt-16 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8">
           <Zap className="w-4 h-4 text-neon-cyan" />
-          <span className="text-sm text-muted-foreground">A velocidade nunca dorme</span>
+          <span className="text-sm text-muted-foreground">{hero.badge}</span>
         </div>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-          Desenvolvimento web de alta performance. Transformamos ideias em plataformas digitais que impulsionam o seu negócio.
+          {hero.description}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#planos" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all">
-            Ver Planos <ArrowRight className="w-5 h-5" />
+            {hero.primaryCta} <ArrowRight className="w-5 h-5" />
           </a>
           <a href="#contato" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border border-border bg-card/50 backdrop-blur-sm text-foreground font-semibold hover:border-neon-cyan/50 transition-all">
-            <Rocket className="w-5 h-5" /> Iniciar Projeto
+            <Rocket className="w-5 h-5" /> {hero.secondaryCta}
           </a>
         </div>
 
         <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
-          <div>
-            <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">3-5</div>
-            <div className="text-sm text-muted-foreground mt-1">dias para lançar</div>
-          </div>
-          <div>
-            <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">100%</div>
-            <div className="text-sm text-muted-foreground mt-1">responsivo</div>
-          </div>
-          <div>
-            <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">24/7</div>
-            <div className="text-sm text-muted-foreground mt-1">suporte dedicado</div>
-          </div>
+          {hero.stats.map((stat) => (
+            <div key={stat.label}>
+              <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{stat.value}</div>
+              <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

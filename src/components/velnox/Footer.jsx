@@ -1,6 +1,9 @@
 import React from 'react';
 import { Instagram, MessageCircle, Mail } from 'lucide-react';
 import { WHATSAPP_URL, INSTAGRAM_URL, CONTACT_EMAIL } from '@/lib/contact';
+import data from '@/data/static-data.json';
+
+const { brand, footer } = data;
 
 export default function Footer() {
   return (
@@ -9,9 +12,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <div className="font-display font-bold text-lg">
-              <span className="text-foreground">VELNOX</span><span className="text-neon-cyan">.IA</span>
+              <span className="text-foreground">{brand.name}</span><span className="text-neon-cyan">{brand.suffix}</span>
             </div>
-            <p className="text-sm text-muted-foreground mt-1">A velocidade nunca dorme.</p>
+            <p className="text-sm text-muted-foreground mt-1">{brand.tagline}</p>
           </div>
 
           <div className="flex items-center gap-4">
@@ -28,7 +31,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          © 2026 VELNOX.IA — A velocidade nunca dorme. Todos os direitos reservados.
+          {footer.copyright}
         </div>
       </div>
     </footer>

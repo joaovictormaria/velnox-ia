@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import { MessageCircle, Instagram, Mail, Send, Loader2, CheckCircle2 } from 'lucide-react';
 import { WHATSAPP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, CONTACT_EMAIL } from '@/lib/contact';
+import data from '@/data/static-data.json';
 
-const projectTypes = [
-  'Landing Page (Launch)',
-  'Site Institucional (Business)',
-  'Plataforma Web (Premium)',
-  'MVP para Startup',
-  'Hospedagem',
-  'Integrações API',
-  'Outro',
-];
+const { contact } = data;
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', projectType: '', message: '' });
@@ -42,7 +35,7 @@ export default function Contact() {
       setForm({ name: '', email: '', phone: '', projectType: '', message: '' });
     } catch (err) {
       console.error('Failed to send contact form:', err);
-      setError('Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.');
+      setError(contact.errorFallback);
     } finally {
       setLoading(false);
     }
@@ -52,8 +45,8 @@ export default function Contact() {
     <section id="contato" className="relative py-24 scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Pronto para <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">começar?</span></h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Solicite um orçamento e responderemos o mais rápido possível.</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">{contact.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{contact.headingHighlight}</span></h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">{contact.subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -62,10 +55,10 @@ export default function Contact() {
             {success ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <CheckCircle2 className="w-16 h-16 text-neon-cyan mb-4" />
-                <h3 className="font-display text-xl font-semibold mb-2">Orçamento enviado!</h3>
-                <p className="text-sm text-muted-foreground mb-6">Recebemos sua solicitação. Em breve entraremos em contato.</p>
+                <h3 className="font-display text-xl font-semibold mb-2">{contact.successTitle}</h3>
+                <p className="text-sm text-muted-foreground mb-6">{contact.successText}</p>
                 <button onClick={() => setSuccess(false)} className="text-sm text-neon-cyan hover:underline">
-                  Enviar outra solicitação
+                  {contact.resendLabel}
                 </button>
               </div>
             ) : (
@@ -119,7 +112,7 @@ export default function Contact() {
                       className="w-full px-4 py-2.5 rounded-lg bg-background/60 border border-border text-foreground text-sm focus:outline-none focus:border-neon-cyan/50 transition-colors"
                     >
                       <option value="">Selecione...</option>
-                      {projectTypes.map((type) => (
+                      {contact.projectTypes.map((type) => (
                         <option key={type} value={type}>{type}</option>
                       ))}
                     </select>
@@ -147,9 +140,9 @@ export default function Contact() {
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {loading ? (
-                    <><Loader2 className="w-5 h-5 animate-spin" /> Enviando...</>
+                    <><Loader2 className="w-5 h-5 animate-spin" /> {contact.submittingLabel}</>
                   ) : (
-                    <>Solicitar Orçamento <Send className="w-4 h-4" /></>
+                    <>{contact.submitLabel} <Send className="w-4 h-4" /></>
                   )}
                 </button>
               </form>
@@ -163,8 +156,8 @@ export default function Contact() {
                 <MessageCircle className="w-5 h-5 text-neon-cyan" />
               </div>
               <div>
-                <div className="text-sm font-semibold">WhatsApp</div>
-                <div className="text-xs text-muted-foreground">Resposta rápida</div>
+                <div className="text-sm font-semibold">{contact.whatsapp.label}</div>
+                <div className="text-xs text-muted-foreground">{contact.whatsapp.sublabel}</div>
               </div>
             </a>
 
@@ -173,7 +166,7 @@ export default function Contact() {
                 <Instagram className="w-5 h-5 text-neon-magenta" />
               </div>
               <div>
-                <div className="text-sm font-semibold">Instagram</div>
+                <div className="text-sm font-semibold">{contact.instagram.label}</div>
                 <div className="text-xs text-muted-foreground">@{INSTAGRAM_HANDLE}</div>
               </div>
             </a>

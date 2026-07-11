@@ -1,6 +1,7 @@
-// TODO: substituir pelos dados reais antes de publicar.
-export const WHATSAPP_NUMBER = '5500000000000';
+import data from '@/data/static-data.json';
+
+export const WHATSAPP_NUMBER = data.contact.whatsapp.number;
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const CONTACT_EMAIL = 'contato@velnox.com.br';
-export const INSTAGRAM_HANDLE = 'velnox.ia';
+export const CONTACT_EMAIL = data.contact.email;
+export const INSTAGRAM_HANDLE = data.contact.instagram.handle;
 export const INSTAGRAM_URL = `https://instagram.com/${INSTAGRAM_HANDLE}`;
