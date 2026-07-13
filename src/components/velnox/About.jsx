@@ -35,7 +35,7 @@ export default function About() {
               </div>
             </div>
             <p className="font-display text-2xl md:text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
-              "{about.quote}"
+              &ldquo;{about.quote}&rdquo;
             </p>
           </div>
         </div>

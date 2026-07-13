@@ -1,11 +1,11 @@
 import React from 'react';
-import PageLayout from '@/components/PageLayout';
+import SiteShell from '@/components/SiteShell';
 import FAQ from '@/components/velnox/FAQ';
 
 export default function FAQPage() {
   return (
-    <PageLayout>
+    <SiteShell>
       <FAQ />
-    </PageLayout>
+    </SiteShell>
   );
 }

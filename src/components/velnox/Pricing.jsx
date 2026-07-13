@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Check, Server, Plug } from 'lucide-react';
 import data from '@/data/static-data.json';
 
@@ -34,7 +34,7 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Link to={`/orcamento?plano=${encodeURIComponent(plan.name)}`} className={`block text-center py-2.5 rounded-lg font-semibold text-sm transition-all ${plan.highlighted ? 'bg-gradient-to-r from-neon-cyan to-neon-magenta text-background hover:shadow-[0_0_25px_rgba(0,255,255,0.35)]' : 'border border-border text-foreground hover:border-neon-cyan/50'}`}>
+              <Link href={`/orcamento?plano=${encodeURIComponent(plan.name)}`} className={`block text-center py-2.5 rounded-lg font-semibold text-sm transition-all ${plan.highlighted ? 'bg-gradient-to-r from-neon-cyan to-neon-magenta text-background hover:shadow-[0_0_25px_rgba(0,255,255,0.35)]' : 'border border-border text-foreground hover:border-neon-cyan/50'}`}>
                 Escolher
               </Link>
             </div>

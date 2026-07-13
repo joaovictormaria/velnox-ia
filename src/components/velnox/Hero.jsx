@@ -49,20 +49,20 @@ export default function Hero() {
               />
             </svg>
             <img
-              src={veloxBoat}
+              src={veloxBoat.src}
               alt=""
               aria-hidden="true"
               className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
             />
             <img
-              src={veloxBoat}
+              src={veloxBoat.src}
               alt=""
               aria-hidden="true"
               className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
               style={{ animationDelay: '-3s' }}
             />
             <img
-              src={veloxBoat}
+              src={veloxBoat.src}
               alt=""
               aria-hidden="true"
               className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
@@ -74,7 +74,7 @@ export default function Hero() {
             aria-label="Velnox.IA - Desenvolvendo o Impossível"
             className="relative z-10 mx-auto aspect-[350/224] w-full max-w-[320px] md:max-w-[380px] lg:max-w-[430px]"
             style={{
-              backgroundImage: `url(${velnoxLogo})`,
+              backgroundImage: `url(${velnoxLogo.src})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: '142.86% 223.21%',
               backgroundPosition: '50% 48.19%',

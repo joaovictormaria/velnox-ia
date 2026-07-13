@@ -1,8 +1,7 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginUnusedImports from "eslint-plugin-unused-imports";
+import nextConfig from "eslint-config-next";
 
 const sharedRules = {
   "no-unused-vars": "off",
@@ -19,10 +18,10 @@ const sharedRules = {
 };
 
 export default [
+  ...nextConfig,
   {
     files: ["src/**/*.{js,mjs,cjs,jsx}"],
     ...pluginJs.configs.recommended,
-    ...pluginReact.configs.flat.recommended,
     languageOptions: {
       globals: globals.browser,
       parserOptions: {
@@ -33,23 +32,13 @@ export default [
         },
       },
     },
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
     plugins: {
-      react: pluginReact,
-      "react-hooks": pluginReactHooks,
       "unused-imports": pluginUnusedImports,
     },
     rules: {
       ...sharedRules,
-      "react/jsx-uses-vars": "error",
-      "react/jsx-uses-react": "error",
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
-      "react-hooks/rules-of-hooks": "error",
     },
   },
 ];

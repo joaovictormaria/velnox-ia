@@ -1,18 +1,14 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import Link from 'next/link';
 import { Check, Send, CheckCircle2, MessageCircle } from 'lucide-react';
 import { buildWhatsappMessageUrl } from '@/lib/contact';
 import data from '@/data/static-data.json';
 
-const { budget, pricing, contact } = data;
+const { budget, contact } = data;
 
-export default function Budget() {
-  const [searchParams] = useSearchParams();
-  const planParam = searchParams.get('plano') || '';
-  const selectedPlan = pricing.plans.find(
-    (plan) => plan.name.toLowerCase() === planParam.toLowerCase()
-  );
-
+export default function Budget({ selectedPlan = null }) {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -57,7 +53,7 @@ export default function Budget() {
           <div className="bg-card/60 backdrop-blur-xl border border-border shadow-[0_0_40px_rgba(0,255,255,0.06),0_0_80px_rgba(255,0,255,0.04)] p-6 md:p-8 rounded-2xl mb-8">
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs uppercase tracking-wide text-muted-foreground">{budget.planSummaryLabel}</span>
-              <Link to="/planos" className="text-xs text-neon-cyan hover:underline">{budget.changePlanLabel}</Link>
+              <Link href="/planos" className="text-xs text-neon-cyan hover:underline">{budget.changePlanLabel}</Link>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
               <div>
@@ -78,7 +74,7 @@ export default function Budget() {
           <div className="bg-card/50 backdrop-blur-xl border border-border p-6 rounded-2xl mb-8 text-center">
             <h2 className="font-display text-lg font-semibold mb-1">{budget.noPlanTitle}</h2>
             <p className="text-sm text-muted-foreground mb-4">{budget.noPlanText}</p>
-            <Link to="/planos" className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-border text-foreground text-sm font-semibold hover:border-neon-cyan/50 transition-all">
+            <Link href="/planos" className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-border text-foreground text-sm font-semibold hover:border-neon-cyan/50 transition-all">
               {budget.backToPlans}
             </Link>
           </div>

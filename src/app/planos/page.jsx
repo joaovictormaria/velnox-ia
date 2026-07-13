@@ -1,11 +1,11 @@
 import React from 'react';
-import PageLayout from '@/components/PageLayout';
+import SiteShell from '@/components/SiteShell';
 import Pricing from '@/components/velnox/Pricing';
 
 export default function PricingPage() {
   return (
-    <PageLayout>
+    <SiteShell>
       <Pricing />
-    </PageLayout>
+    </SiteShell>
   );
 }

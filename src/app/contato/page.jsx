@@ -1,11 +1,11 @@
 import React from 'react';
-import PageLayout from '@/components/PageLayout';
+import SiteShell from '@/components/SiteShell';
 import Contact from '@/components/velnox/Contact';
 
 export default function ContactPage() {
   return (
-    <PageLayout>
+    <SiteShell>
       <Contact />
-    </PageLayout>
+    </SiteShell>
   );
 }
