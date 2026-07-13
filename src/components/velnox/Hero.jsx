@@ -70,15 +70,15 @@ export default function Hero() {
               style={{ animationDelay: '-6s' }}
             />
           </div>
-          <div className="relative z-10 mx-auto aspect-[350/224] w-full max-w-[320px] md:max-w-[380px] lg:max-w-[430px]">
+          <div className="relative z-10 mx-auto aspect-[350/224] w-full max-w-[385px] md:max-w-[450px] lg:max-w-[515px]">
             <Image
               src={velnoxLogo}
               alt="Velnox.IA - Desenvolvendo o Impossível"
               fill
               priority
-              sizes="(max-width: 768px) 320px, (max-width: 1024px) 380px, 430px"
+              sizes="(max-width: 768px) 385px, (max-width: 1024px) 450px, 515px"
               className="object-cover"
-              style={{ objectPosition: '50% 48.19%', transform: 'scale(1.4286, 2.2321)' }}
+              style={{ objectPosition: '50% 48.19%' }}
             />
           </div>
         </div>
