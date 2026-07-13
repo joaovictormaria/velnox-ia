@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, Clock, Users, ShieldCheck } from 'lucide-react';
+import { Scale, Clock, Users, ShieldCheck, Sparkles } from 'lucide-react';
 import data from '@/data/static-data.json';
 
 const { portfolio } = data;
@@ -9,17 +9,27 @@ export default function Portfolio({ headingLevel = 'h2' }) {
   const Heading = headingLevel;
 
   return (
-    <section id="portfolio" className="relative py-24 scroll-mt-20">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="portfolio" className="relative py-24 scroll-mt-20 border-y border-border overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-neon-cyan/[0.06] via-neon-magenta/[0.03] to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-neon-cyan/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neon-cyan/30 bg-card/60 backdrop-blur-sm mb-6">
+            <Sparkles className="w-4 h-4 text-neon-cyan" />
+            <span className="text-sm font-medium text-foreground">Projeto real, não mockup</span>
+          </div>
           <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{portfolio.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{portfolio.headingHighlight}</span></Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">{portfolio.subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6">
           {portfolio.cases.map((item) => (
-            <div key={item.segment} className="bg-card/60 backdrop-blur-xl border border-border shadow-[0_0_40px_rgba(0,255,255,0.06),0_0_80px_rgba(255,0,255,0.04)] p-6 md:p-8 rounded-2xl">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6">
+            <div key={item.segment} className="relative bg-card/70 backdrop-blur-xl border border-neon-cyan/25 shadow-[0_0_50px_rgba(0,255,255,0.1),0_0_100px_rgba(255,0,255,0.06)] p-6 md:p-8 rounded-2xl">
+              <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-gradient-to-r from-neon-cyan to-neon-magenta text-background text-xs font-semibold tracking-wide">
+                Case Real
+              </div>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6 mt-2">
                 <h3 className="font-display text-xl font-semibold">{item.segment}</h3>
                 <span className="font-mono text-xs text-neon-cyan uppercase tracking-wide">{item.plan}</span>
               </div>
