@@ -1,9 +1,10 @@
 import React from 'react';
 import SiteShell from '@/components/SiteShell';
 import Pricing from '@/components/velnox/Pricing';
-import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import data from '@/data/static-data.json';
 import { buildMetadata } from '@/lib/seo';
+import { offerCatalogSchema } from '@/lib/jsonld';
 
 export const metadata = buildMetadata({
   title: 'Planos e Preços',
@@ -14,7 +15,11 @@ export const metadata = buildMetadata({
 export default function PricingPage() {
   return (
     <SiteShell>
-      <BreadcrumbJsonLd page="Planos e Preços" path="/planos" />
+      <Breadcrumbs items={[{ name: 'Planos e Preços', path: '/planos' }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(offerCatalogSchema(data.pricing.plans)) }}
+      />
       <Pricing headingLevel="h1" />
     </SiteShell>
   );

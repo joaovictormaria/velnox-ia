@@ -1,7 +1,7 @@
 import React from 'react';
 import SiteShell from '@/components/SiteShell';
 import FAQ from '@/components/velnox/FAQ';
-import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import data from '@/data/static-data.json';
 import { buildMetadata } from '@/lib/seo';
 import { faqSchema } from '@/lib/jsonld';
@@ -15,7 +15,7 @@ export const metadata = buildMetadata({
 export default function FAQPage() {
   return (
     <SiteShell>
-      <BreadcrumbJsonLd page="Perguntas Frequentes" path="/faq" />
+      <Breadcrumbs items={[{ name: 'Perguntas Frequentes', path: '/faq' }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(data.faq.items)) }}

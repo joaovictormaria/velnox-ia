@@ -1,8 +1,9 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import Link from 'next/link';
+import { ChevronDown, MessageCircle } from 'lucide-react';
 import data from '@/data/static-data.json';
 
-const { faq } = data;
+const { faq, nav } = data;
 
 /** @param {{ headingLevel?: 'h1' | 'h2' }} props */
 export default function FAQ({ headingLevel = 'h2' }) {
@@ -17,7 +18,7 @@ export default function FAQ({ headingLevel = 'h2' }) {
         </div>
         <div className="space-y-3">
           {faq.items.map((item, index) => (
-            <details key={index} className="group bg-card/50 backdrop-blur-xl border border-border rounded-xl overflow-hidden">
+            <details key={index} id={`faq-${index}`} className="group bg-card/50 backdrop-blur-xl border border-border rounded-xl overflow-hidden scroll-mt-24">
               <summary className="w-full flex items-center justify-between p-5 text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <span className="font-medium text-foreground pr-4">{item.q}</span>
                 <ChevronDown className="w-5 h-5 text-neon-cyan transition-transform shrink-0 group-open:rotate-180" />
@@ -25,6 +26,14 @@ export default function FAQ({ headingLevel = 'h2' }) {
               <div className="px-5 pb-5 text-sm text-muted-foreground">{item.a}</div>
             </details>
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            href="/contato"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-magenta text-background font-semibold text-sm hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all"
+          >
+            <MessageCircle className="w-4 h-4" /> {nav.cta}
+          </Link>
         </div>
       </div>
     </section>

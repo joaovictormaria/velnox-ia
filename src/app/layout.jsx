@@ -1,6 +1,7 @@
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import '@/app/globals.css';
 import HashScrollFix from '@/components/HashScrollFix';
+import WhatsappFloatButton from '@/components/WhatsappFloatButton';
 import data from '@/data/static-data.json';
 import { SITE_URL, SITE_NAME, SITE_TAGLINE } from '@/lib/seo';
 import { organizationSchema, websiteSchema } from '@/lib/jsonld';
@@ -73,6 +74,7 @@ export default function RootLayout({ children }) {
         />
         <HashScrollFix />
         {children}
+        <WhatsappFloatButton />
       </body>
     </html>
   );

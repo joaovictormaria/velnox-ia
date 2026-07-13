@@ -1,7 +1,7 @@
 import React from 'react';
 import SiteShell from '@/components/SiteShell';
 import Contact from '@/components/velnox/Contact';
-import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import data from '@/data/static-data.json';
 import { buildMetadata } from '@/lib/seo';
 
@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <SiteShell>
-      <BreadcrumbJsonLd page="Contato" path="/contato" />
+      <Breadcrumbs items={[{ name: 'Contato', path: '/contato' }]} />
       <Contact headingLevel="h1" />
     </SiteShell>
   );

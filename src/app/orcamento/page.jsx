@@ -1,7 +1,7 @@
 import React from 'react';
 import SiteShell from '@/components/SiteShell';
 import Budget from '@/components/velnox/Budget';
-import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import data from '@/data/static-data.json';
 import { buildMetadata } from '@/lib/seo';
 
@@ -20,7 +20,7 @@ export default async function BudgetPage({ searchParams }) {
 
   return (
     <SiteShell>
-      <BreadcrumbJsonLd page="Orçamento" path="/orcamento" />
+      <Breadcrumbs items={[{ name: 'Orçamento', path: '/orcamento' }]} />
       <Budget selectedPlan={selectedPlan} />
     </SiteShell>
   );

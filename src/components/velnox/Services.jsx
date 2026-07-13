@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Code, Rocket, Layout, Search, Server, Cpu } from 'lucide-react';
 import data from '@/data/static-data.json';
 
@@ -20,13 +21,17 @@ export default function Services({ headingLevel = 'h2' }) {
           {services.items.map((service) => {
             const Icon = icons[service.icon];
             return (
-              <div key={service.title} className="bg-card/50 backdrop-blur-xl border border-border p-6 rounded-2xl hover:border-neon-cyan/40 transition-all group">
+              <Link
+                key={service.title}
+                href={`/servicos/${service.slug}`}
+                className="block bg-card/50 backdrop-blur-xl border border-border p-6 rounded-2xl hover:border-neon-cyan/40 transition-all group"
+              >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neon-cyan/20 to-neon-magenta/20 flex items-center justify-center mb-4 group-hover:from-neon-cyan/30 group-hover:to-neon-magenta/30 transition-all">
                   <Icon className="w-6 h-6 text-neon-cyan" />
                 </div>
                 <h3 className="font-display text-xl font-semibold mb-2">{service.title}</h3>
                 <p className="text-sm text-muted-foreground">{service.description}</p>
-              </div>
+              </Link>
             );
           })}
         </div>

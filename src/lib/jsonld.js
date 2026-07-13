@@ -41,6 +41,45 @@ export function breadcrumbSchema(items) {
   };
 }
 
+export function serviceSchema(item) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: item.title,
+    description: item.description,
+    provider: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    areaServed: 'BR',
+    url: `${SITE_URL}/servicos/${item.slug}`,
+  };
+}
+
+function parsePrice(priceStr) {
+  const isMinimum = priceStr.includes('+');
+  const value = Number(priceStr.replace(/[^\d]/g, ''));
+  return { value, isMinimum };
+}
+
+export function offerCatalogSchema(plans) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: `Planos ${SITE_NAME}`,
+    itemListElement: plans.map((plan) => {
+      const { value, isMinimum } = parsePrice(plan.price);
+      return {
+        '@type': 'Offer',
+        name: plan.name,
+        description: plan.description,
+        priceCurrency: 'BRL',
+        availability: 'https://schema.org/InStock',
+        ...(isMinimum
+          ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: value, priceCurrency: 'BRL' } }
+          : { price: value }),
+      };
+    }),
+  };
+}
+
 export function faqSchema(items) {
   return {
     '@context': 'https://schema.org',

@@ -1,10 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import { Check, Server, Plug } from 'lucide-react';
+import { Check, Server, Plug, ArrowRight } from 'lucide-react';
 import data from '@/data/static-data.json';
 
 const icons = { Server, Plug };
-const { pricing } = data;
+const { pricing, services } = data;
+
+/** @param {{ planName?: string, addonName?: string }} args */
+function relatedServiceFor({ planName, addonName }) {
+  return services.items.find((item) => {
+    if (planName) return item.relatedPlan === planName;
+    if (addonName) return item.relatedAddon === addonName;
+    return false;
+  });
+}
 
 /** @param {{ headingLevel?: 'h1' | 'h2' }} props */
 export default function Pricing({ headingLevel = 'h2' }) {
@@ -19,34 +28,43 @@ export default function Pricing({ headingLevel = 'h2' }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {pricing.plans.map((plan) => (
-            <div key={plan.name} className={`relative p-6 rounded-2xl transition-all border ${plan.highlighted ? 'bg-card/60 backdrop-blur-xl border-neon-magenta/40 shadow-[0_0_40px_rgba(0,255,255,0.06),0_0_80px_rgba(255,0,255,0.04)]' : 'bg-card/50 backdrop-blur-xl border-border'}`}>
-              {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-neon-cyan to-neon-magenta text-background text-xs font-semibold">
-                  Mais Popular
-                </div>
-              )}
-              <h3 className="font-mono text-sm text-muted-foreground mb-1">{plan.name}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
-              <div className="font-display text-3xl font-bold mb-6">{plan.price}</div>
-              <ul className="space-y-3 mb-6">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm">
-                    <Check className="w-4 h-4 text-neon-cyan mt-0.5 shrink-0" />
-                    <span className="text-muted-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href={`/orcamento?plano=${encodeURIComponent(plan.name)}`} className={`block text-center py-2.5 rounded-lg font-semibold text-sm transition-all ${plan.highlighted ? 'bg-gradient-to-r from-neon-cyan to-neon-magenta text-background hover:shadow-[0_0_25px_rgba(0,255,255,0.35)]' : 'border border-border text-foreground hover:border-neon-cyan/50'}`}>
-                Escolher
-              </Link>
-            </div>
-          ))}
+          {pricing.plans.map((plan) => {
+            const related = relatedServiceFor({ planName: plan.name });
+            return (
+              <div key={plan.name} className={`relative p-6 rounded-2xl transition-all border ${plan.highlighted ? 'bg-card/60 backdrop-blur-xl border-neon-magenta/40 shadow-[0_0_40px_rgba(0,255,255,0.06),0_0_80px_rgba(255,0,255,0.04)]' : 'bg-card/50 backdrop-blur-xl border-border'}`}>
+                {plan.highlighted && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-neon-cyan to-neon-magenta text-background text-xs font-semibold">
+                    Mais Popular
+                  </div>
+                )}
+                <h3 className="font-mono text-sm text-muted-foreground mb-1">{plan.name}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
+                <div className="font-display text-3xl font-bold mb-6">{plan.price}</div>
+                <ul className="space-y-3 mb-6">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm">
+                      <Check className="w-4 h-4 text-neon-cyan mt-0.5 shrink-0" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href={`/orcamento?plano=${encodeURIComponent(plan.name)}`} className={`block text-center py-2.5 rounded-lg font-semibold text-sm transition-all ${plan.highlighted ? 'bg-gradient-to-r from-neon-cyan to-neon-magenta text-background hover:shadow-[0_0_25px_rgba(0,255,255,0.35)]' : 'border border-border text-foreground hover:border-neon-cyan/50'}`}>
+                  Escolher
+                </Link>
+                {related && (
+                  <Link href={`/servicos/${related.slug}`} className="mt-3 flex items-center justify-center gap-1 text-xs text-muted-foreground hover:text-neon-cyan transition-colors">
+                    Sobre {related.title} <ArrowRight className="w-3 h-3" />
+                  </Link>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pricing.addons.map((addon) => {
             const Icon = icons[addon.icon];
+            const related = relatedServiceFor({ addonName: addon.name });
             return (
               <div key={addon.name} className="bg-card/50 backdrop-blur-xl border border-border p-6 rounded-2xl flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neon-cyan/20 to-neon-magenta/20 flex items-center justify-center shrink-0">
@@ -64,6 +82,11 @@ export default function Pricing({ headingLevel = 'h2' }) {
                       </li>
                     ))}
                   </ul>
+                  {related && (
+                    <Link href={`/servicos/${related.slug}`} className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-neon-cyan transition-colors">
+                      Sobre {related.title} <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  )}
                 </div>
               </div>
             );

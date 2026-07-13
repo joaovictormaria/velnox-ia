@@ -10,6 +10,7 @@
       { "label": "Serviços", "href": "/#servicos" },
       { "label": "Planos", "href": "/#planos" },
       { "label": "Sobre", "href": "/#sobre" },
+      { "label": "Portfólio", "href": "/#portfolio" },
       { "label": "FAQ", "href": "/#faq" },
       { "label": "Contato", "href": "/#contato" }
     ],
@@ -31,12 +32,12 @@
     "headingHighlight": "Serviços",
     "subtitle": "Soluções completas para a presença digital do seu negócio.",
     "items": [
-      { "icon": "Code", "title": "Desenvolvimento Web", "description": "Sites e sistemas desenvolvidos com tecnologia moderna e código limpo." },
-      { "icon": "Rocket", "title": "Landing Pages", "description": "Páginas de alto impacto focadas em conversão e captação de leads." },
-      { "icon": "Layout", "title": "Plataformas Web", "description": "Sistemas completos e personalizados para o seu negócio escalar." },
-      { "icon": "Search", "title": "SEO & Performance", "description": "Otimização para mecanismos de busca e máxima velocidade." },
-      { "icon": "Server", "title": "Hospedagem & Infra", "description": "Servidores premium com SSL, backups e monitoramento 24/7." },
-      { "icon": "Cpu", "title": "Integrações & APIs", "description": "Conecte seu site a pagamentos, CRMs e ferramentas externas." }
+      { "icon": "Code", "title": "Desenvolvimento Web", "description": "Sites e sistemas desenvolvidos com tecnologia moderna e código limpo.", "slug": "desenvolvimento-web", "relatedPlan": "BUSINESS", "relatedFaqIndex": 3 },
+      { "icon": "Rocket", "title": "Landing Pages", "description": "Páginas de alto impacto focadas em conversão e captação de leads.", "slug": "landing-pages", "relatedPlan": "LAUNCH", "relatedFaqIndex": 1 },
+      { "icon": "Layout", "title": "Plataformas Web", "description": "Sistemas completos e personalizados para o seu negócio escalar.", "slug": "plataformas-web", "relatedPlan": "PREMIUM", "relatedFaqIndex": 0 },
+      { "icon": "Search", "title": "SEO & Performance", "description": "Otimização para mecanismos de busca e máxima velocidade.", "slug": "seo-performance", "relatedPlan": null, "relatedFaqIndex": 6 },
+      { "icon": "Server", "title": "Hospedagem & Infra", "description": "Servidores premium com SSL, backups e monitoramento 24/7.", "slug": "hospedagem-infra", "relatedPlan": null, "relatedAddon": "Hospedagem Premium", "relatedFaqIndex": 2 },
+      { "icon": "Cpu", "title": "Integrações & APIs", "description": "Conecte seu site a pagamentos, CRMs e ferramentas externas.", "slug": "integracoes-apis", "relatedPlan": null, "relatedAddon": "Integrações API", "relatedFaqIndex": 5 }
     ]
   },
   "pricing": {
@@ -103,6 +104,22 @@
       { "icon": "Target", "title": "Missão", "text": "Democratizar o acesso a tecnologia de ponta para empresas de todos os tamanhos." },
       { "icon": "Eye", "title": "Visão", "text": "Ser referência em desenvolvimento web inovador e de alta performance no Brasil." },
       { "icon": "Heart", "title": "Valores", "text": "Velocidade, inovação, transparência e compromisso com resultados reais." }
+    ]
+  },
+  "portfolio": {
+    "headingPrefix": "Projetos",
+    "headingHighlight": "Reais",
+    "subtitle": "Nem tudo que entregamos pode ser exibido em detalhe (sigilo de cliente), mas isso é um projeto real, não um mockup.",
+    "cases": [
+      {
+        "segment": "LegalTech / EdTech Jurídico",
+        "focus": "Proteção digital infantil (ECA Digital)",
+        "audience": "Famílias e escolas",
+        "deliverable": "Site Institucional",
+        "plan": "Site Institucional (Business)",
+        "timeline": "15 dias",
+        "legalContext": "Projeto desenvolvido no contexto da Lei nº 15.211/2025 (ECA Digital), em vigor desde 17/03/2026."
+      }
     ]
   },
   "faq": {
