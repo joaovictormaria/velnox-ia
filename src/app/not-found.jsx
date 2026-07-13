@@ -1,5 +1,10 @@
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Página não encontrada',
+  robots: { index: false, follow: true },
+};
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-6">

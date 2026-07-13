@@ -7,7 +7,9 @@ import data from '@/data/static-data.json';
 
 const { contact } = data;
 
-export default function Contact() {
+/** @param {{ headingLevel?: 'h1' | 'h2' }} props */
+export default function Contact({ headingLevel = 'h2' }) {
+  const Heading = headingLevel;
   const [form, setForm] = useState({ name: '', email: '', phone: '', projectType: '', message: '' });
   const [success, setSuccess] = useState(false);
   const [sentForm, setSentForm] = useState(null);
@@ -28,7 +30,7 @@ export default function Contact() {
     <section id="contato" className="relative py-24 scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">{contact.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{contact.headingHighlight}</span></h2>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{contact.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{contact.headingHighlight}</span></Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">{contact.subtitle}</p>
         </div>
 

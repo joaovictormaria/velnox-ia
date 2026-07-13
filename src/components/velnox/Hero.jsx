@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ArrowRight, Rocket, Zap } from 'lucide-react';
 import velnoxLogo from '@/images/velox.ia_logo.png';
 import veloxBoat from '@/images/VELOX-removebg-preview.png';
@@ -48,38 +49,38 @@ export default function Hero() {
                 style={{ animationDelay: '-2.6s' }}
               />
             </svg>
-            <img
-              src={veloxBoat.src}
+            <Image
+              src={veloxBoat}
               alt=""
               aria-hidden="true"
               className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
             />
-            <img
-              src={veloxBoat.src}
+            <Image
+              src={veloxBoat}
               alt=""
               aria-hidden="true"
               className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
               style={{ animationDelay: '-3s' }}
             />
-            <img
-              src={veloxBoat.src}
+            <Image
+              src={veloxBoat}
               alt=""
               aria-hidden="true"
               className="animate-sail-right absolute z-20 w-16 md:w-20 lg:w-24 h-auto [filter:drop-shadow(0_0_10px_rgba(0,255,255,0.9))_drop-shadow(0_0_22px_rgba(0,255,255,0.6))]"
               style={{ animationDelay: '-6s' }}
             />
           </div>
-          <div
-            role="img"
-            aria-label="Velnox.IA - Desenvolvendo o Impossível"
-            className="relative z-10 mx-auto aspect-[350/224] w-full max-w-[320px] md:max-w-[380px] lg:max-w-[430px]"
-            style={{
-              backgroundImage: `url(${velnoxLogo.src})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: '142.86% 223.21%',
-              backgroundPosition: '50% 48.19%',
-            }}
-          />
+          <div className="relative z-10 mx-auto aspect-[350/224] w-full max-w-[320px] md:max-w-[380px] lg:max-w-[430px]">
+            <Image
+              src={velnoxLogo}
+              alt="Velnox.IA - Desenvolvendo o Impossível"
+              fill
+              priority
+              sizes="(max-width: 768px) 320px, (max-width: 1024px) 380px, 430px"
+              className="object-cover"
+              style={{ objectPosition: '50% 48.19%', transform: 'scale(1.4286, 2.2321)' }}
+            />
+          </div>
         </div>
 
         <div className="mt-16 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8">

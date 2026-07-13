@@ -5,12 +5,15 @@ import data from '@/data/static-data.json';
 const icons = { Code, Rocket, Layout, Search, Server, Cpu };
 const { services } = data;
 
-export default function Services() {
+/** @param {{ headingLevel?: 'h1' | 'h2' }} props */
+export default function Services({ headingLevel = 'h2' }) {
+  const Heading = headingLevel;
+
   return (
     <section id="servicos" className="relative py-24 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">{services.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{services.headingHighlight}</span></h2>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{services.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{services.headingHighlight}</span></Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">{services.subtitle}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

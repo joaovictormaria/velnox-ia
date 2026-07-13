@@ -5,7 +5,9 @@ import data from '@/data/static-data.json';
 const icons = { Zap, Moon, Target, Eye, Heart };
 const { about } = data;
 
-export default function About() {
+/** @param {{ headingLevel?: 'h1' | 'h2' }} props */
+export default function About({ headingLevel = 'h2' }) {
+  const Heading = headingLevel;
   const VelIcon = icons[about.vel.icon];
   const NoxIcon = icons[about.nox.icon];
 
@@ -13,7 +15,7 @@ export default function About() {
     <section id="sobre" className="relative py-24 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">{about.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{about.headingHighlight}</span></h2>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{about.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{about.headingHighlight}</span></Heading>
         </div>
 
         <div className="max-w-4xl mx-auto mb-20">

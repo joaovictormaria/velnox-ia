@@ -48,10 +48,10 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['Space Grotesk', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace']
+        heading: ['var(--font-heading)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        display: ['var(--font-heading)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace']
       },
       keyframes: {
         'float': {
