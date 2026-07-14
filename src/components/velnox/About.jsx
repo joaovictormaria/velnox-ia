@@ -1,9 +1,12 @@
 import React from 'react';
-import { Zap, Moon, Target, Eye, Heart } from 'lucide-react';
+import Image from 'next/image';
+import { Zap, Moon, Target, Eye, Heart, Linkedin, Github, Instagram } from 'lucide-react';
 import data from '@/data/static-data.json';
+import founderPhoto from '@/images/foto-victor.jpeg';
 
 const icons = { Zap, Moon, Target, Eye, Heart };
 const { about } = data;
+const { founder } = about;
 
 /** @param {{ headingLevel?: 'h1' | 'h2' }} props */
 export default function About({ headingLevel = 'h2' }) {
@@ -61,6 +64,32 @@ export default function About({ headingLevel = 'h2' }) {
               </div>
             );
           })}
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-16">
+          <div className="bg-card/50 backdrop-blur-xl border border-border p-6 md:p-10 rounded-3xl flex flex-col md:flex-row items-center md:items-start gap-8">
+            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border border-neon-cyan/30 shrink-0">
+              <Image src={founderPhoto} alt={founder.name} fill sizes="160px" className="object-cover" />
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="font-display text-xl font-semibold">{founder.name}</h3>
+              <p className="text-sm text-neon-cyan font-mono mb-4">{founder.role}</p>
+              {(headingLevel === 'h1' ? founder.bio : founder.bio.slice(0, 1)).map((paragraph, i) => (
+                <p key={i} className="text-sm text-muted-foreground leading-relaxed mb-3 last:mb-0">{paragraph}</p>
+              ))}
+              <div className="flex items-center justify-center md:justify-start gap-3 mt-5">
+                <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-cyan hover:border-neon-cyan/50 transition-all">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a href={founder.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-cyan hover:border-neon-cyan/50 transition-all">
+                  <Github className="w-4 h-4" />
+                </a>
+                <a href={founder.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-neon-magenta hover:border-neon-magenta/50 transition-all">
+                  <Instagram className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

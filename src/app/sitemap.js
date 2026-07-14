@@ -18,6 +18,8 @@ export default function sitemap() {
     { path: '/faq', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/contato', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/orcamento', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/privacidade', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/termos', priority: 0.3, changeFrequency: 'yearly' },
   ];
 
   return routes.map((route) => ({

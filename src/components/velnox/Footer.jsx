@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Instagram, MessageCircle, Mail } from 'lucide-react';
 import { WHATSAPP_URL, INSTAGRAM_URL, CONTACT_EMAIL } from '@/lib/contact';
 import data from '@/data/static-data.json';
@@ -7,7 +8,7 @@ const { brand, footer } = data;
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="border-t border-border pt-12 pb-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
@@ -30,8 +31,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          {footer.copyright}
+        <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-center text-sm text-muted-foreground">
+          <span>{footer.copyright}</span>
+          <div className="flex items-center gap-4">
+            <Link href="/privacidade" className="hover:text-foreground transition-colors">Política de Privacidade</Link>
+            <Link href="/termos" className="hover:text-foreground transition-colors">Termos de Uso</Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { MessageCircle, Instagram, Mail, Send, CheckCircle2 } from 'lucide-react';
 import { WHATSAPP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE, CONTACT_EMAIL, buildWhatsappMessageUrl } from '@/lib/contact';
 import data from '@/data/static-data.json';
@@ -11,6 +12,7 @@ const { contact } = data;
 export default function Contact({ headingLevel = 'h2' }) {
   const Heading = headingLevel;
   const [form, setForm] = useState({ name: '', email: '', phone: '', projectType: '', message: '' });
+  const [website, setWebsite] = useState('');
   const [success, setSuccess] = useState(false);
   const [sentForm, setSentForm] = useState(null);
 
@@ -20,6 +22,7 @@ export default function Contact({ headingLevel = 'h2' }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (website) return;
     window.open(buildWhatsappMessageUrl(form), '_blank', 'noopener,noreferrer');
     setSentForm(form);
     setSuccess(true);
@@ -126,6 +129,22 @@ export default function Contact({ headingLevel = 'h2' }) {
                     placeholder="Conte-nos sobre o seu projeto..."
                   />
                 </div>
+
+                <input
+                  type="text"
+                  name="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
+                <p className="text-xs text-muted-foreground">
+                  Ao enviar, você concorda com nossa{' '}
+                  <Link href="/privacidade" className="text-neon-cyan hover:underline">Política de Privacidade</Link>.
+                </p>
 
                 <button
                   type="submit"

@@ -16,6 +16,7 @@ export default function Budget({ selectedPlan = null }) {
     projectType: selectedPlan ? selectedPlan.projectType : '',
     message: '',
   });
+  const [website, setWebsite] = useState('');
   const [success, setSuccess] = useState(false);
   const [sentWhatsappUrl, setSentWhatsappUrl] = useState('');
 
@@ -25,6 +26,7 @@ export default function Budget({ selectedPlan = null }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (website) return;
     const planLines = selectedPlan
       ? [
           `*Plano escolhido:* ${selectedPlan.name} (${selectedPlan.price})`,
@@ -165,6 +167,22 @@ export default function Budget({ selectedPlan = null }) {
                   placeholder={budget.messagePlaceholder}
                 />
               </div>
+
+              <input
+                type="text"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
+              <p className="text-xs text-muted-foreground">
+                Ao enviar, você concorda com nossa{' '}
+                <Link href="/privacidade" className="text-neon-cyan hover:underline">Política de Privacidade</Link>.
+              </p>
 
               <button
                 type="submit"

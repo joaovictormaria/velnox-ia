@@ -104,7 +104,19 @@
       { "icon": "Target", "title": "Missão", "text": "Democratizar o acesso a tecnologia de ponta para empresas de todos os tamanhos." },
       { "icon": "Eye", "title": "Visão", "text": "Ser referência em desenvolvimento web inovador e de alta performance no Brasil." },
       { "icon": "Heart", "title": "Valores", "text": "Velocidade, inovação, transparência e compromisso com resultados reais." }
-    ]
+    ],
+    "founder": {
+      "name": "João Victor Rodrigues",
+      "role": "Desenvolvedor Fullstack",
+      "bio": [
+        "Sou Desenvolvedor Full Stack com foco na criação de aplicações modernas, escaláveis e de alta qualidade. Trabalho principalmente com React, Next.js, React Native, FastAPI, PostgreSQL e Docker, desenvolvendo soluções que unem desempenho, segurança e uma excelente experiência para o usuário.",
+        "Tenho interesse especial por arquitetura de software, SEO, infraestrutura em nuvem, inteligência artificial e desenvolvimento de produtos SaaS. Gosto de transformar ideias em soluções reais, aplicando boas práticas de engenharia de software para construir sistemas robustos, escaláveis e preparados para produção.",
+        "Estou sempre buscando evoluir tecnicamente, explorando novas tecnologias e aprimorando processos para entregar produtos que gerem valor para empresas e usuários."
+      ],
+      "linkedin": "https://www.linkedin.com/in/joão-victor-rodrigues-nascimento-8b9aa11b1/",
+      "github": "https://github.com/joaovictormaria",
+      "instagram": "https://www.instagram.com/victor.rodrigues.j"
+    }
   },
   "portfolio": {
     "headingPrefix": "Projetos",
@@ -136,7 +148,8 @@
       { "q": "O que é um MVP?", "a": "MVP significa Produto Mínimo Viável. É uma versão funcional do seu produto que permite validar sua ideia no mercado com rapidez e baixo custo, ideal para startups." },
       { "q": "Como funciona o pagamento?", "a": "O pagamento é dividido em duas partes: o investimento único no desenvolvimento e a hospedagem mensal. Aceitamos PIX, cartão e boleto." },
       { "q": "Meu site aparece no Google?", "a": "Sim! Todos os nossos sites são desenvolvidos com estrutura preparada para SEO, incluindo sitemap, tags otimizadas e performance de acordo com as Web Vitals do Google." },
-      { "q": "O site funciona no celular?", "a": "Sim! Todos os nossos sites são 100% responsivos, funcionando perfeitamente em desktops, tablets e celulares." }
+      { "q": "O site funciona no celular?", "a": "Sim! Todos os nossos sites são 100% responsivos, funcionando perfeitamente em desktops, tablets e celulares." },
+      { "q": "E se eu precisar de ajustes depois da entrega?", "a": "Pequenos ajustes de acordo com o escopo combinado no orçamento estão incluídos no período de entrega. Mudanças fora do escopo inicial (novas páginas, funcionalidades extras) são orçadas à parte." }
     ]
   },
   "contact": {
