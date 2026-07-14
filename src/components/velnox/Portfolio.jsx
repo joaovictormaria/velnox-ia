@@ -83,67 +83,6 @@ export default function Portfolio({ headingLevel = 'h2' }) {
                 <Scale className="w-3.5 h-3.5 text-neon-magenta mt-0.5 shrink-0" />
                 <span className="text-xs text-muted-foreground">{item.legalContext}</span>
               </div>
-
-              {/*
-                Bloco com identificação do cliente — só publicar com autorização explícita confirmada.
-                Fatos verificados nesta sessão (não inventados):
-                - Equipe da cliente (advogadas especialistas em Direito Digital / proteção de crianças e adolescentes):
-                  - Clara Machado — Advogada; Doutora e Mestre em Direito pela UFBA; docente e pesquisadora em
-                    Direito, Tecnologia e Inovação; educadora parental.
-                  - Grasielle Vieira — Advogada; Doutora em Direito pela Universidade Presbiteriana Mackenzie/SP;
-                    Mestre em Direito Penal pela PUC-SP; pesquisadora em violência doméstica e políticas públicas
-                    de proteção de mulheres, crianças e adolescentes; educadora parental.
-                  - Karoline Santana — Advogada e empresária; Mestre em Direito pela Universidade Tiradentes/SE;
-                    atuação em proteção de crianças e adolescentes.
-                - Artigos publicados por integrantes dessa equipe em veículos jurídicos reais, sobre Roblox x ECA Digital:
-                  - Conjur (18/03/2026), "Arquitetura do vício e dever de cuidado: algoritmo no banco dos réus e
-                    interlocução com ECA Digital", autoras Clara Machado, Denise Andrade e Grasielle Vieira.
-                    https://www.conjur.com.br/2026-mar-18/arquitetura-do-vicio-e-dever-de-cuidado-algoritmo-no-banco-dos-reus-e-interlocucao-com-eca-digital/
-                  - Migalhas, "Roblox e o ECA Digital: Verificação de idade e desproteção de crianças".
-                    https://www.migalhas.com.br/depeso/450785/roblox-e-o-eca-digital-verificacao-de-idade-e-desprotecao-de-criancas
-
-                Pra ativar: 1) pedir as fotos reais das 3 advogadas pro cliente, 2) salvar em
-                src/images/ (ex: clara-machado.jpg) e importar como os outros componentes já fazem
-                (import claraMachado from '@/images/clara-machado.jpg'; ver About.jsx/Portfolio.jsx
-                pra referência), 3) descomentar o bloco abaixo trocando os imports de exemplo pelos
-                reais. Usar next/image com import estático (não <img src="/portfolio/...">) —
-                sem o arquivo importado, o build falha na hora em vez de gerar imagem quebrada
-                silenciosa em produção.
-
-              <div className="mt-8 pt-8 border-t border-border">
-                <p className="text-xs uppercase tracking-wide text-muted-foreground mb-4">Equipe jurídica do projeto</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-2">
-                      <Image src={claraMachadoPhoto} alt="Clara Machado" fill sizes="64px" className="object-cover" />
-                    </div>
-                    <div className="text-sm font-semibold">Clara Machado</div>
-                    <div className="text-xs text-muted-foreground">Advogada; Doutora e Mestre em Direito (UFBA); docente e pesquisadora em Direito, Tecnologia e Inovação; educadora parental.</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-2">
-                      <Image src={grasielleVieiraPhoto} alt="Grasielle Vieira" fill sizes="64px" className="object-cover" />
-                    </div>
-                    <div className="text-sm font-semibold">Grasielle Vieira</div>
-                    <div className="text-xs text-muted-foreground">Advogada; Doutora em Direito (Mackenzie/SP); Mestre em Direito Penal (PUC-SP); pesquisadora em violência doméstica e proteção de crianças e adolescentes; educadora parental.</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-2">
-                      <Image src={karolineSantanaPhoto} alt="Karoline Santana" fill sizes="64px" className="object-cover" />
-                    </div>
-                    <div className="text-sm font-semibold">Karoline Santana</div>
-                    <div className="text-xs text-muted-foreground">Advogada e empresária; Mestre em Direito (UNIT/SE); atuação em proteção de crianças e adolescentes.</div>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground mt-4">
-                  Presença técnica real em mídia jurídica: {' '}
-                  <a href="https://www.conjur.com.br/2026-mar-18/arquitetura-do-vicio-e-dever-de-cuidado-algoritmo-no-banco-dos-reus-e-interlocucao-com-eca-digital/" target="_blank" rel="noopener noreferrer" className="text-neon-cyan hover:underline">Conjur</a>
-                  {' '}e{' '}
-                  <a href="https://www.migalhas.com.br/depeso/450785/roblox-e-o-eca-digital-verificacao-de-idade-e-desprotecao-de-criancas" target="_blank" rel="noopener noreferrer" className="text-neon-cyan hover:underline">Migalhas</a>
-                  , sobre Roblox x ECA Digital.
-                </p>
-              </div>
-              */}
               </div>
             </div>
             );
