@@ -64,6 +64,56 @@ export default async function ServiceDetailPage({ params }) {
 
           <p className="text-lg text-muted-foreground mb-10">{item.description}</p>
 
+          {item.details && (
+            <div className="mb-10 space-y-8">
+              <p className="text-muted-foreground leading-relaxed">{item.details.explanation}</p>
+
+              <div>
+                <h2 className="font-display text-lg font-semibold mb-3">Benefícios</h2>
+                <ul className="space-y-2">
+                  {item.details.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check className="w-4 h-4 text-neon-cyan mt-0.5 shrink-0" /> {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h2 className="font-display text-lg font-semibold mb-3">Como funciona</h2>
+                <ol className="space-y-2">
+                  {item.details.process.map((step, index) => (
+                    <li key={step} className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <span className="font-mono text-xs text-neon-cyan shrink-0 mt-0.5">{String(index + 1).padStart(2, '0')}</span> {step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div>
+                <h2 className="font-display text-lg font-semibold mb-3">Casos de uso</h2>
+                <ul className="space-y-2">
+                  {item.details.useCases.map((useCase) => (
+                    <li key={useCase} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check className="w-4 h-4 text-neon-cyan mt-0.5 shrink-0" /> {useCase}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h2 className="font-display text-lg font-semibold mb-3">Diferenciais</h2>
+                <ul className="space-y-2">
+                  {item.details.differentiators.map((diff) => (
+                    <li key={diff} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check className="w-4 h-4 text-neon-cyan mt-0.5 shrink-0" /> {diff}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
+
           {relatedPlan && (
             <div className="bg-card/60 backdrop-blur-xl border border-border shadow-[0_0_40px_rgba(0,255,255,0.06),0_0_80px_rgba(255,0,255,0.04)] p-6 md:p-8 rounded-2xl mb-8">
               <div className="flex items-center justify-between mb-4">

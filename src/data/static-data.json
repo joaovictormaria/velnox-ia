@@ -32,12 +32,90 @@
     "headingHighlight": "Serviços",
     "subtitle": "Soluções completas para a presença digital do seu negócio.",
     "items": [
-      { "icon": "Code", "title": "Desenvolvimento Web", "description": "Sites e sistemas desenvolvidos com tecnologia moderna e código limpo.", "slug": "desenvolvimento-web", "relatedPlan": "BUSINESS", "relatedFaqIndex": 3 },
-      { "icon": "Rocket", "title": "Landing Pages", "description": "Páginas de alto impacto focadas em conversão e captação de leads.", "slug": "landing-pages", "relatedPlan": "LAUNCH", "relatedFaqIndex": 1 },
-      { "icon": "Layout", "title": "Plataformas Web", "description": "Sistemas completos e personalizados para o seu negócio escalar.", "slug": "plataformas-web", "relatedPlan": "PREMIUM", "relatedFaqIndex": 0 },
-      { "icon": "Search", "title": "SEO & Performance", "description": "Otimização para mecanismos de busca e máxima velocidade.", "slug": "seo-performance", "relatedPlan": null, "relatedFaqIndex": 6 },
-      { "icon": "Server", "title": "Hospedagem & Infra", "description": "Servidores premium com SSL, backups e monitoramento 24/7.", "slug": "hospedagem-infra", "relatedPlan": null, "relatedAddon": "Hospedagem Premium", "relatedFaqIndex": 2 },
-      { "icon": "Cpu", "title": "Integrações & APIs", "description": "Conecte seu site a pagamentos, CRMs e ferramentas externas.", "slug": "integracoes-apis", "relatedPlan": null, "relatedAddon": "Integrações API", "relatedFaqIndex": 5 }
+      {
+        "icon": "Code", "title": "Desenvolvimento Web", "description": "Sites e sistemas desenvolvidos com tecnologia moderna e código limpo.", "slug": "desenvolvimento-web", "relatedPlan": "BUSINESS", "relatedFaqIndex": 3,
+        "details": {
+          "explanation": "Sites institucionais e sistemas web sob medida, construídos em código-fonte real com React e Next.js — não montados em cima de um page builder genérico. Isso significa liberdade total sobre estrutura, performance e integrações, sem ficar preso às limitações de uma plataforma de terceiros.",
+          "benefits": [
+            "Performance mensurável, não prometida — o mesmo Core Web Vitals que qualquer ferramenta de auditoria consegue conferir",
+            "Painel administrativo pra manter textos, fotos e conteúdo em dia sem depender de um desenvolvedor pra cada alteração",
+            "Estrutura pronta pra SEO desde o primeiro commit (sitemap, metadata, dados estruturados), não como retrofit depois"
+          ],
+          "process": ["Briefing e definição de escopo", "Estrutura de conteúdo e protótipo de páginas", "Desenvolvimento em React/Next.js", "Testes e ajustes com o cliente", "Publicação e treinamento do painel administrativo"],
+          "useCases": ["Site institucional pra empresa que precisa de presença profissional online", "Portal com login e área restrita pra clientes ou equipe", "Sistema interno sob medida pra um processo específico do negócio"],
+          "differentiators": ["Entrega em código-fonte real, sem vendor lock-in de builder", "Performance verificável com ferramentas públicas (Lighthouse, PageSpeed)", "Suporte direto por WhatsApp durante e depois da entrega, sem fila de ticket"]
+        }
+      },
+      {
+        "icon": "Rocket", "title": "Landing Pages", "description": "Páginas de alto impacto focadas em conversão e captação de leads.", "slug": "landing-pages", "relatedPlan": "LAUNCH", "relatedFaqIndex": 1,
+        "details": {
+          "explanation": "Uma página única, construída em torno de um objetivo só: captar um lead, vender um produto ou validar uma campanha. Sem menu espalhando atenção, sem seções que não ajudam a conversão — cada elemento da página existe pra levar o visitante até a ação.",
+          "benefits": [
+            "Carregamento rápido pra não perder tráfego pago logo na entrada",
+            "Estrutura pensada pra conversão, não só pra ficar bonita",
+            "Fácil de medir resultado — uma página, um objetivo, um número pra acompanhar"
+          ],
+          "process": ["Definição do objetivo único da página", "Copy e estrutura voltadas pra conversão", "Design e desenvolvimento", "Integração com WhatsApp ou formulário de captura", "Publicação"],
+          "useCases": ["Página de destino pra campanha de tráfego pago", "Lançamento de um produto ou infoproduto específico", "Captura de leads pra um evento ou webinar"],
+          "differentiators": ["Entrega mais rápida do catálogo (3-5 dias úteis)", "Foco em um único CTA, sem distração", "Performance otimizada pra não perder conversão por lentidão de carregamento"]
+        }
+      },
+      {
+        "icon": "Layout", "title": "Plataformas Web", "description": "Sistemas completos e personalizados para o seu negócio escalar.", "slug": "plataformas-web", "relatedPlan": "PREMIUM", "relatedFaqIndex": 0,
+        "details": {
+          "explanation": "Sistemas web completos e personalizados — dashboards, portais com múltiplos perfis de usuário, produtos digitais em estágio inicial. Construídos com arquitetura pensada pra crescer junto com o negócio, não pra ser reescrita do zero assim que passar do básico.",
+          "benefits": [
+            "Arquitetura que aguenta crescimento sem precisar recomeçar depois",
+            "Integrações sob medida pro fluxo real do negócio, não configuração genérica",
+            "Controle total sobre o que é construído e como evolui"
+          ],
+          "process": ["Levantamento de requisitos e definição de arquitetura", "Prototipagem dos fluxos principais", "Desenvolvimento por módulos", "Testes e QA", "Deploy e acompanhamento pós-lançamento"],
+          "useCases": ["Dashboard interno de gestão ou métricas", "Portal com múltiplos perfis de usuário (cliente, admin, equipe)", "Produto digital (SaaS) em estágio inicial validando o mercado"],
+          "differentiators": ["Stack moderna (React, Next.js, FastAPI, PostgreSQL, Docker)", "Escopo sob medida, sem adaptação forçada de template pronto", "Acompanhamento direto com quem efetivamente desenvolve o sistema"]
+        }
+      },
+      {
+        "icon": "Search", "title": "SEO & Performance", "description": "Otimização para mecanismos de busca e máxima velocidade.", "slug": "seo-performance", "relatedPlan": null, "relatedFaqIndex": 6,
+        "details": {
+          "explanation": "Otimização técnica de SEO e performance — em site novo ou já existente. Cobre desde estrutura de indexação (sitemap, robots, dados estruturados) até performance real de carregamento, medida com as mesmas ferramentas que o Google usa pra avaliar o site.",
+          "benefits": [
+            "Mais visibilidade orgânica sem depender só de anúncio pago",
+            "Carregamento mais rápido reduz abandono de visitante",
+            "Estrutura preparada tanto pra buscadores tradicionais quanto pra respostas geradas por IA"
+          ],
+          "process": ["Auditoria técnica do site atual", "Correção de problemas de indexação e performance", "Implementação de dados estruturados (Schema.org)", "Otimização de imagens e carregamento", "Acompanhamento de resultado com métricas reais"],
+          "useCases": ["Site existente que não aparece nas buscas do Google", "Site institucional ou e-commerce com carregamento lento", "Negócio que depende de busca orgânica pra gerar contato"],
+          "differentiators": ["Auditoria feita em cima do código real, não só relatório automático genérico", "Correções aplicadas por quem desenvolve, sem intermediário repassando pedido", "Acompanhamento com métricas verificáveis (Lighthouse, Search Console)"]
+        }
+      },
+      {
+        "icon": "Server", "title": "Hospedagem & Infra", "description": "Servidores premium com SSL, backups e monitoramento 24/7.", "slug": "hospedagem-infra", "relatedPlan": null, "relatedAddon": "Hospedagem Premium", "relatedFaqIndex": 2,
+        "details": {
+          "explanation": "Hospedagem gerenciada com certificado SSL, backups automáticos e monitoramento contínuo — sem precisar entender de servidor, DNS ou configuração de infraestrutura.",
+          "benefits": [
+            "Site no ar com HTTPS desde o primeiro dia",
+            "Backup automático pra não perder nada em caso de problema",
+            "Suporte direto se algo sair do ar, sem depender de central de atendimento genérica"
+          ],
+          "process": ["Configuração de domínio e DNS", "Deploy com certificado SSL", "Configuração de backup automático", "Monitoramento contínuo"],
+          "useCases": ["Quem já tem site mas a hospedagem atual é instável ou lenta", "Quem está lançando o primeiro site e não quer lidar com infraestrutura", "Migração de uma hospedagem antiga sem tempo de indisponibilidade"],
+          "differentiators": ["Suporte direto, não ticket genérico de call center", "Infraestrutura na mesma stack usada no desenvolvimento, sem gambiarra de compatibilidade", "Monitoramento ativo, não reativo"]
+        }
+      },
+      {
+        "icon": "Cpu", "title": "Integrações & APIs", "description": "Conecte seu site a pagamentos, CRMs e ferramentas externas.", "slug": "integracoes-apis", "relatedPlan": null, "relatedAddon": "Integrações API", "relatedFaqIndex": 5,
+        "details": {
+          "explanation": "Conectar o site às ferramentas que o negócio já usa — pagamento, CRM, WhatsApp, planilhas — pra que os dados fluam automaticamente em vez de serem copiados à mão de um sistema pro outro.",
+          "benefits": [
+            "Menos trabalho manual repetindo dado entre sistemas",
+            "O site passa a fazer parte do fluxo de vendas ou atendimento, não fica isolado",
+            "Sem depender de plugin genérico que quebra a cada atualização"
+          ],
+          "process": ["Mapeamento das ferramentas e fluxos já existentes", "Definição do tipo de integração (API, webhook, automação)", "Desenvolvimento e testes", "Validação com dado real antes de ativar", "Acompanhamento pós-entrega"],
+          "useCases": ["Receber pagamento direto no site", "Enviar lead automaticamente pro CRM assim que o formulário é enviado", "Conectar formulário a uma planilha ou sistema interno"],
+          "differentiators": ["Integração sob medida pro fluxo real do negócio, não configuração genérica de plugin", "Testada com dado real antes da entrega, não só em ambiente de exemplo", "Suporte pra ajustar a integração se o fluxo do negócio mudar"]
+        }
+      }
     ]
   },
   "pricing": {

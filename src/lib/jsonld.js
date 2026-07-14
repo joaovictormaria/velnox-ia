@@ -1,7 +1,10 @@
 import { WHATSAPP_NUMBER, INSTAGRAM_URL } from '@/lib/contact';
 import { SITE_URL, SITE_NAME } from '@/lib/seo';
+import data from '@/data/static-data.json';
 
 export function organizationSchema() {
+  const { founder } = data.about;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -16,6 +19,12 @@ export function organizationSchema() {
       availableLanguage: 'pt-BR',
     },
     sameAs: [INSTAGRAM_URL],
+    founder: {
+      '@type': 'Person',
+      name: founder.name,
+      jobTitle: founder.role,
+      sameAs: [founder.linkedin, founder.github, founder.instagram],
+    },
   };
 }
 

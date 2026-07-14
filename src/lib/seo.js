@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://velnoxia.com.br';
+export const SITE_URL = 'https://www.velnoxia.com.br';
 export const SITE_NAME = 'VELNOX.IA';
 export const SITE_TAGLINE = 'Desenvolvendo o Impossível';
 

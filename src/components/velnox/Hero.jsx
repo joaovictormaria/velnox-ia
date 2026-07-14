@@ -76,6 +76,7 @@ export default function Hero() {
               alt="Velnox.IA - Desenvolvendo o Impossível"
               fill
               priority
+              fetchPriority="high"
               sizes="(max-width: 768px) 385px, (max-width: 1024px) 450px, 515px"
               className="object-cover"
               style={{ objectPosition: '50% 48.19%' }}

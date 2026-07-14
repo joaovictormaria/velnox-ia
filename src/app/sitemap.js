@@ -23,7 +23,7 @@ export default function sitemap() {
   ];
 
   return routes.map((route) => ({
-    url: `${SITE_URL}${route.path}`,
+    url: route.path === '/' ? SITE_URL : `${SITE_URL}${route.path}`,
     lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,

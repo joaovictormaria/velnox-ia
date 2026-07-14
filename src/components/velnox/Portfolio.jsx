@@ -45,7 +45,7 @@ export default function Portfolio({ headingLevel = 'h2' }) {
               </div>
               {cover && (
                 <a href={item.url} target="_blank" rel="noopener noreferrer" className="block relative w-full aspect-[16/9] bg-background rounded-t-2xl overflow-hidden">
-                  <Image src={cover} alt={`Captura de tela do site ${item.name}`} fill className="object-cover object-top" />
+                  <Image src={cover} alt={`Captura de tela do site ${item.name}`} fill sizes="(max-width: 448px) 100vw, 448px" className="object-cover object-top" />
                 </a>
               )}
               <div className="p-4">
@@ -102,24 +102,35 @@ export default function Portfolio({ headingLevel = 'h2' }) {
                   - Migalhas, "Roblox e o ECA Digital: Verificação de idade e desproteção de crianças".
                     https://www.migalhas.com.br/depeso/450785/roblox-e-o-eca-digital-verificacao-de-idade-e-desprotecao-de-criancas
 
-                Pra ativar: descomentar o bloco JSX abaixo (precisa de fotos reais das 3 advogadas — não
-                incluídas aqui, buscar com o cliente — e trocar os placeholders de src).
+                Pra ativar: 1) pedir as fotos reais das 3 advogadas pro cliente, 2) salvar em
+                src/images/ (ex: clara-machado.jpg) e importar como os outros componentes já fazem
+                (import claraMachado from '@/images/clara-machado.jpg'; ver About.jsx/Portfolio.jsx
+                pra referência), 3) descomentar o bloco abaixo trocando os imports de exemplo pelos
+                reais. Usar next/image com import estático (não <img src="/portfolio/...">) —
+                sem o arquivo importado, o build falha na hora em vez de gerar imagem quebrada
+                silenciosa em produção.
 
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="text-xs uppercase tracking-wide text-muted-foreground mb-4">Equipe jurídica do projeto</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <img src="/portfolio/clara-machado.jpg" alt="Clara Machado" className="w-16 h-16 rounded-full object-cover mx-auto mb-2" />
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-2">
+                      <Image src={claraMachadoPhoto} alt="Clara Machado" fill sizes="64px" className="object-cover" />
+                    </div>
                     <div className="text-sm font-semibold">Clara Machado</div>
                     <div className="text-xs text-muted-foreground">Advogada; Doutora e Mestre em Direito (UFBA); docente e pesquisadora em Direito, Tecnologia e Inovação; educadora parental.</div>
                   </div>
                   <div className="text-center">
-                    <img src="/portfolio/grasielle-vieira.jpg" alt="Grasielle Vieira" className="w-16 h-16 rounded-full object-cover mx-auto mb-2" />
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-2">
+                      <Image src={grasielleVieiraPhoto} alt="Grasielle Vieira" fill sizes="64px" className="object-cover" />
+                    </div>
                     <div className="text-sm font-semibold">Grasielle Vieira</div>
                     <div className="text-xs text-muted-foreground">Advogada; Doutora em Direito (Mackenzie/SP); Mestre em Direito Penal (PUC-SP); pesquisadora em violência doméstica e proteção de crianças e adolescentes; educadora parental.</div>
                   </div>
                   <div className="text-center">
-                    <img src="/portfolio/karoline-santana.jpg" alt="Karoline Santana" className="w-16 h-16 rounded-full object-cover mx-auto mb-2" />
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden mx-auto mb-2">
+                      <Image src={karolineSantanaPhoto} alt="Karoline Santana" fill sizes="64px" className="object-cover" />
+                    </div>
                     <div className="text-sm font-semibold">Karoline Santana</div>
                     <div className="text-xs text-muted-foreground">Advogada e empresária; Mestre em Direito (UNIT/SE); atuação em proteção de crianças e adolescentes.</div>
                   </div>

@@ -101,8 +101,9 @@ export default function Budget({ selectedPlan = null }) {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm text-muted-foreground mb-1.5">Nome *</label>
+                  <label htmlFor="budget-name" className="block text-sm text-muted-foreground mb-1.5">Nome *</label>
                   <input
+                    id="budget-name"
                     type="text"
                     name="name"
                     required
@@ -113,8 +114,9 @@ export default function Budget({ selectedPlan = null }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-muted-foreground mb-1.5">E-mail *</label>
+                  <label htmlFor="budget-email" className="block text-sm text-muted-foreground mb-1.5">E-mail *</label>
                   <input
+                    id="budget-email"
                     type="email"
                     name="email"
                     required
@@ -128,8 +130,9 @@ export default function Budget({ selectedPlan = null }) {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm text-muted-foreground mb-1.5">Telefone / WhatsApp</label>
+                  <label htmlFor="budget-phone" className="block text-sm text-muted-foreground mb-1.5">Telefone / WhatsApp</label>
                   <input
+                    id="budget-phone"
                     type="text"
                     name="phone"
                     value={form.phone}
@@ -139,8 +142,9 @@ export default function Budget({ selectedPlan = null }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-muted-foreground mb-1.5">Tipo de projeto *</label>
+                  <label htmlFor="budget-project-type" className="block text-sm text-muted-foreground mb-1.5">Tipo de projeto *</label>
                   <select
+                    id="budget-project-type"
                     name="projectType"
                     required
                     value={form.projectType}
@@ -156,8 +160,9 @@ export default function Budget({ selectedPlan = null }) {
               </div>
 
               <div>
-                <label className="block text-sm text-muted-foreground mb-1.5">{budget.messageLabel} *</label>
+                <label htmlFor="budget-message" className="block text-sm text-muted-foreground mb-1.5">{budget.messageLabel} *</label>
                 <textarea
+                  id="budget-message"
                   name="message"
                   required
                   rows={5}
@@ -181,7 +186,7 @@ export default function Budget({ selectedPlan = null }) {
 
               <p className="text-xs text-muted-foreground">
                 Ao enviar, você concorda com nossa{' '}
-                <Link href="/privacidade" className="text-neon-cyan hover:underline">Política de Privacidade</Link>.
+                <Link href="/privacidade" className="text-neon-cyan underline hover:no-underline">Política de Privacidade</Link>.
               </p>
 
               <button

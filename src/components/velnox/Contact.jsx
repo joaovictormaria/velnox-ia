@@ -43,7 +43,7 @@ export default function Contact({ headingLevel = 'h2' }) {
             {success ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <CheckCircle2 className="w-16 h-16 text-neon-cyan mb-4" />
-                <h3 className="font-display text-xl font-semibold mb-2">{contact.successTitle}</h3>
+                <h2 className="font-display text-xl font-semibold mb-2">{contact.successTitle}</h2>
                 <p className="text-sm text-muted-foreground mb-6">{contact.successText}</p>
                 {sentForm && (
                   <a
@@ -63,8 +63,9 @@ export default function Contact({ headingLevel = 'h2' }) {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-muted-foreground mb-1.5">Nome *</label>
+                    <label htmlFor="contact-name" className="block text-sm text-muted-foreground mb-1.5">Nome *</label>
                     <input
+                      id="contact-name"
                       type="text"
                       name="name"
                       required
@@ -75,8 +76,9 @@ export default function Contact({ headingLevel = 'h2' }) {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-muted-foreground mb-1.5">E-mail *</label>
+                    <label htmlFor="contact-email" className="block text-sm text-muted-foreground mb-1.5">E-mail *</label>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       required
@@ -90,8 +92,9 @@ export default function Contact({ headingLevel = 'h2' }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-muted-foreground mb-1.5">Telefone / WhatsApp</label>
+                    <label htmlFor="contact-phone" className="block text-sm text-muted-foreground mb-1.5">Telefone / WhatsApp</label>
                     <input
+                      id="contact-phone"
                       type="text"
                       name="phone"
                       value={form.phone}
@@ -101,8 +104,9 @@ export default function Contact({ headingLevel = 'h2' }) {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-muted-foreground mb-1.5">Tipo de projeto *</label>
+                    <label htmlFor="contact-subject" className="block text-sm text-muted-foreground mb-1.5">Tipo de projeto *</label>
                     <select
+                      id="contact-subject"
                       name="projectType"
                       required
                       value={form.projectType}
@@ -118,8 +122,9 @@ export default function Contact({ headingLevel = 'h2' }) {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-muted-foreground mb-1.5">Mensagem *</label>
+                  <label htmlFor="contact-message" className="block text-sm text-muted-foreground mb-1.5">Mensagem *</label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     required
                     rows={4}
@@ -143,7 +148,7 @@ export default function Contact({ headingLevel = 'h2' }) {
 
                 <p className="text-xs text-muted-foreground">
                   Ao enviar, você concorda com nossa{' '}
-                  <Link href="/privacidade" className="text-neon-cyan hover:underline">Política de Privacidade</Link>.
+                  <Link href="/privacidade" className="text-neon-cyan underline hover:no-underline">Política de Privacidade</Link>.
                 </p>
 
                 <button
