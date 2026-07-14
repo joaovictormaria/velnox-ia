@@ -1,15 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LogOut, Trash2 } from 'lucide-react';
-
-const STATUS_OPTIONS = [
-  { value: 'novo', label: 'Novo' },
-  { value: 'em_contato', label: 'Em contato' },
-  { value: 'convertido', label: 'Convertido' },
-  { value: 'perdido', label: 'Perdido' },
-];
+import LeadsStats, { STATUS_OPTIONS } from '@/components/admin/LeadsStats';
 
 function formatDate(value) {
   return new Date(value).toLocaleString('pt-BR');
@@ -18,6 +12,21 @@ function formatDate(value) {
 export default function LeadsTable({ leads }) {
   const router = useRouter();
   const [pendingId, setPendingId] = useState(null);
+  const [search, setSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
+
+  const filteredLeads = useMemo(() => {
+    const term = search.trim().toLowerCase();
+    return leads.filter((lead) => {
+      if (statusFilter !== 'all' && lead.status !== statusFilter) return false;
+      if (!term) return true;
+      return (
+        lead.name?.toLowerCase().includes(term) ||
+        lead.email?.toLowerCase().includes(term) ||
+        lead.message?.toLowerCase().includes(term)
+      );
+    });
+  }, [leads, search, statusFilter]);
 
   const handleStatusChange = async (id, status) => {
     setPendingId(id);
@@ -67,13 +76,39 @@ export default function LeadsTable({ leads }) {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-2xl font-bold">Leads ({leads.length})</h1>
+        <h1 className="font-display text-2xl font-bold">
+          Leads {filteredLeads.length !== leads.length ? `(${filteredLeads.length} de ${leads.length})` : `(${leads.length})`}
+        </h1>
         <button
           onClick={handleLogout}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:border-neon-cyan/40 transition-colors"
         >
           <LogOut className="w-4 h-4" /> Sair
         </button>
+      </div>
+
+      <LeadsStats leads={leads} />
+
+      <div className="flex flex-col sm:flex-row gap-3">
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Buscar por nome, email ou mensagem…"
+          className="flex-1 px-4 py-2.5 rounded-lg bg-background/60 border border-border text-foreground text-sm focus:outline-none focus:border-neon-cyan/50 transition-colors"
+        />
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className="px-4 py-2.5 rounded-lg bg-background/60 border border-border text-foreground text-sm focus:outline-none focus:border-neon-cyan/50 transition-colors"
+        >
+          <option value="all">Todos os status</option>
+          {STATUS_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="overflow-x-auto bg-card/50 backdrop-blur-xl border border-border rounded-2xl">
@@ -91,7 +126,7 @@ export default function LeadsTable({ leads }) {
             </tr>
           </thead>
           <tbody>
-            {leads.map((lead) => (
+            {filteredLeads.map((lead) => (
               <tr key={lead.id} className="border-b border-border/60 align-top">
                 <td className="p-4 font-medium text-foreground whitespace-nowrap">{lead.name}</td>
                 <td className="p-4 text-muted-foreground">
@@ -137,10 +172,10 @@ export default function LeadsTable({ leads }) {
                 </td>
               </tr>
             ))}
-            {leads.length === 0 && (
+            {filteredLeads.length === 0 && (
               <tr>
                 <td colSpan={8} className="p-8 text-center text-muted-foreground">
-                  Nenhum lead ainda.
+                  {leads.length === 0 ? 'Nenhum lead ainda.' : 'Nenhum lead corresponde ao filtro.'}
                 </td>
               </tr>
             )}
