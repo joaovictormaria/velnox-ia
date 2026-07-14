@@ -15,11 +15,17 @@ export default function About({ headingLevel = 'h2' }) {
     <section id="sobre" className="relative py-24 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{about.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{about.headingHighlight}</span></Heading>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">
+            {about.headingPrefix} {headingLevel === 'h1' ? (
+              <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{about.headingHighlight}</span>
+            ) : (
+              <span className="text-neon-cyan">{about.headingHighlight}</span>
+            )}
+          </Heading>
         </div>
 
         <div className="max-w-4xl mx-auto mb-20">
-          <div className="bg-card/60 backdrop-blur-xl border border-border shadow-[0_0_40px_rgba(0,255,255,0.06),0_0_80px_rgba(255,0,255,0.04)] p-8 md:p-12 rounded-3xl text-center">
+          <div className="bg-card/60 backdrop-blur-xl border border-border shadow-[0_0_25px_rgba(0,255,255,0.05),0_0_50px_rgba(255,0,255,0.03)] p-8 md:p-12 rounded-3xl text-center">
             <p className="text-sm text-muted-foreground mb-6">{about.breakdownIntro}</p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
               <div className="text-center">
@@ -36,7 +42,7 @@ export default function About({ headingLevel = 'h2' }) {
                 </div>
               </div>
             </div>
-            <p className="font-display text-2xl md:text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
+            <p className="font-display text-2xl md:text-3xl font-bold text-foreground">
               &ldquo;{about.quote}&rdquo;
             </p>
           </div>

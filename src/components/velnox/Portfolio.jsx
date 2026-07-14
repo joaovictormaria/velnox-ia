@@ -25,7 +25,13 @@ export default function Portfolio({ headingLevel = 'h2' }) {
             <Sparkles className="w-4 h-4 text-neon-cyan" />
             <span className="text-sm font-medium text-foreground">Projeto real, não mockup</span>
           </div>
-          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{portfolio.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{portfolio.headingHighlight}</span></Heading>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">
+            {portfolio.headingPrefix} {headingLevel === 'h1' ? (
+              <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{portfolio.headingHighlight}</span>
+            ) : (
+              <span className="text-neon-cyan">{portfolio.headingHighlight}</span>
+            )}
+          </Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">{portfolio.subtitle}</p>
         </div>
 
@@ -33,7 +39,7 @@ export default function Portfolio({ headingLevel = 'h2' }) {
           {portfolio.cases.map((item) => {
             const cover = COVERS[item.name];
             return (
-            <div key={item.segment} className="relative bg-card/70 backdrop-blur-xl border border-neon-cyan/25 shadow-[0_0_50px_rgba(0,255,255,0.1),0_0_100px_rgba(255,0,255,0.06)] rounded-2xl">
+            <div key={item.segment} className="relative bg-card/70 backdrop-blur-xl border border-neon-cyan/25 shadow-[0_0_25px_rgba(0,255,255,0.06),0_0_50px_rgba(255,0,255,0.04)] rounded-2xl">
               <div className="absolute -top-3 left-5 z-10 px-2.5 py-1 rounded-full bg-gradient-to-r from-neon-cyan to-neon-magenta text-background text-xs font-semibold tracking-wide">
                 Case Real
               </div>

@@ -20,11 +20,11 @@ export default {
           foreground: 'hsl(0 0% 98%)'
         },
         primary: {
-          DEFAULT: 'hsl(180 100% 50%)',
+          DEFAULT: 'hsl(180 75% 52%)',
           foreground: 'hsl(222 52% 4%)'
         },
         secondary: {
-          DEFAULT: 'hsl(300 100% 50%)',
+          DEFAULT: 'hsl(300 65% 56%)',
           foreground: 'hsl(0 0% 98%)'
         },
         muted: {
@@ -32,7 +32,7 @@ export default {
           foreground: 'hsl(220 10% 65%)'
         },
         accent: {
-          DEFAULT: 'hsl(300 100% 50%)',
+          DEFAULT: 'hsl(300 65% 56%)',
           foreground: 'hsl(0 0% 98%)'
         },
         destructive: {
@@ -41,10 +41,10 @@ export default {
         },
         border: 'hsl(222 30% 15%)',
         input: 'hsl(222 30% 15%)',
-        ring: 'hsl(180 100% 50%)',
+        ring: 'hsl(180 75% 52%)',
         neon: {
-          cyan: 'hsl(180 100% 50%)',
-          magenta: 'hsl(300 100% 50%)'
+          cyan: 'hsl(180 75% 52%)',
+          magenta: 'hsl(300 65% 56%)'
         }
       },
       fontFamily: {

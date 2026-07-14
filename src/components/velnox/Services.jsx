@@ -11,10 +11,16 @@ export default function Services({ headingLevel = 'h2' }) {
   const Heading = headingLevel;
 
   return (
-    <section id="servicos" className="relative py-24 scroll-mt-20">
+    <section id="servicos" className="relative py-24 scroll-mt-20 border-y border-border/60">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{services.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{services.headingHighlight}</span></Heading>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">
+            {services.headingPrefix} {headingLevel === 'h1' ? (
+              <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{services.headingHighlight}</span>
+            ) : (
+              <span className="text-neon-cyan">{services.headingHighlight}</span>
+            )}
+          </Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">{services.subtitle}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

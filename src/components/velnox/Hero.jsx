@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, Rocket, Zap } from 'lucide-react';
+import { ArrowRight, Rocket, Zap, ShieldCheck, MessageCircle, Search } from 'lucide-react';
 import velnoxLogo from '@/images/velox.ia_logo.png';
 import veloxBoat from '@/images/VELOX-removebg-preview.png';
 import data from '@/data/static-data.json';
@@ -101,7 +101,19 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-12 text-sm text-muted-foreground">
+          <a href="#portfolio" className="inline-flex items-center gap-1.5 hover:text-neon-cyan transition-colors">
+            <ShieldCheck className="w-4 h-4 text-neon-cyan" /> Projeto real entregue
+          </a>
+          <span className="inline-flex items-center gap-1.5">
+            <MessageCircle className="w-4 h-4 text-neon-cyan" /> Suporte direto via WhatsApp
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Search className="w-4 h-4 text-neon-cyan" /> SEO incluso em todos os planos
+          </span>
+        </div>
+
+        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-12">
           {hero.stats.map((stat) => (
             <div key={stat.label}>
               <div className="font-display text-3xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{stat.value}</div>

@@ -10,10 +10,16 @@ export default function FAQ({ headingLevel = 'h2' }) {
   const Heading = headingLevel;
 
   return (
-    <section id="faq" className="relative py-24 scroll-mt-20">
+    <section id="faq" className="relative py-24 scroll-mt-20 border-y border-border/60">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16">
-          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{faq.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{faq.headingHighlight}</span></Heading>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">
+            {faq.headingPrefix} {headingLevel === 'h1' ? (
+              <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{faq.headingHighlight}</span>
+            ) : (
+              <span className="text-neon-cyan">{faq.headingHighlight}</span>
+            )}
+          </Heading>
           <p className="text-muted-foreground">{faq.subtitle}</p>
         </div>
         <div className="space-y-3">

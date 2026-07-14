@@ -23,7 +23,13 @@ export default function Pricing({ headingLevel = 'h2' }) {
     <section id="planos" className="relative py-24 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{pricing.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{pricing.headingHighlight}</span></Heading>
+          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">
+            {pricing.headingPrefix} {headingLevel === 'h1' ? (
+              <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{pricing.headingHighlight}</span>
+            ) : (
+              <span className="text-neon-cyan">{pricing.headingHighlight}</span>
+            )}
+          </Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">{pricing.subtitle}</p>
         </div>
 
