@@ -5,6 +5,7 @@ import WhatsappFloatButton from '@/components/WhatsappFloatButton';
 import data from '@/data/static-data.json';
 import { SITE_URL, SITE_NAME, SITE_TAGLINE } from '@/lib/seo';
 import { organizationSchema, websiteSchema } from '@/lib/jsonld';
+import { Analytics } from '@vercel/analytics/next';
 
 const fullTitle = `${SITE_NAME} — ${SITE_TAGLINE}`;
 
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
         <HashScrollFix />
         {children}
         <WhatsappFloatButton />
+        <Analytics />
       </body>
     </html>
   );

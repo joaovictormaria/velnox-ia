@@ -13,6 +13,7 @@ const securityHeaders = [
       "img-src 'self' data:",
       `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline'",
+      "connect-src 'self' https://vitals.vercel-insights.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
