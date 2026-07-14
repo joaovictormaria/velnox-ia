@@ -51,6 +51,9 @@ export const metadata = {
     title: fullTitle,
     description: data.hero.description,
   },
+  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  }),
 };
 
 export const viewport = {
