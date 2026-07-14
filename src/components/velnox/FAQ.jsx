@@ -24,12 +24,21 @@ export default function FAQ({ headingLevel = 'h2' }) {
         </div>
         <div className="space-y-3">
           {faq.items.map((item, index) => (
-            <details key={index} id={`faq-${index}`} className="group bg-card/50 backdrop-blur-xl border border-border rounded-xl overflow-hidden scroll-mt-24">
-              <summary className="w-full flex items-center justify-between p-5 text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <details
+              key={index}
+              name="faq"
+              id={`faq-${index}`}
+              className="group bg-card/50 backdrop-blur-xl border border-border rounded-xl overflow-hidden scroll-mt-24 open:border-neon-cyan/50 open:shadow-[0_0_20px_rgba(0,255,255,0.12)] transition-colors"
+            >
+              <summary className="w-full flex items-center justify-between p-5 text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-card/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-cyan/60">
                 <span className="font-medium text-foreground pr-4">{item.q}</span>
                 <ChevronDown className="w-5 h-5 text-neon-cyan transition-transform shrink-0 group-open:rotate-180" />
               </summary>
-              <div className="px-5 pb-5 text-sm text-muted-foreground">{item.a}</div>
+              <div className="grid grid-rows-[0fr] group-open:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
+                <div className="overflow-hidden">
+                  <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{item.a}</div>
+                </div>
+              </div>
             </details>
           ))}
         </div>
