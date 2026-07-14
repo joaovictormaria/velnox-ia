@@ -4,7 +4,7 @@ import Hero from '@/components/velnox/Hero';
 import Services from '@/components/velnox/Services';
 import Pricing from '@/components/velnox/Pricing';
 import About from '@/components/velnox/About';
-// import Portfolio from '@/components/velnox/Portfolio'; // oculto por enquanto
+import Portfolio from '@/components/velnox/Portfolio';
 import FAQ from '@/components/velnox/FAQ';
 import Contact from '@/components/velnox/Contact';
 import Footer from '@/components/velnox/Footer';
@@ -20,7 +20,7 @@ export default function Home() {
         <Services />
         <Pricing />
         <About />
-        {/* <Portfolio /> oculto por enquanto */}
+        <Portfolio />
         <FAQ />
         <Contact />
       </main>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, Clock, Users, ShieldCheck, Sparkles } from 'lucide-react';
+import { Scale, Clock, Users, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 import data from '@/data/static-data.json';
 
 const { portfolio } = data;
@@ -30,7 +30,19 @@ export default function Portfolio({ headingLevel = 'h2' }) {
                 Case Real
               </div>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6 mt-2">
-                <h3 className="font-display text-xl font-semibold">{item.segment}</h3>
+                <div>
+                  <h3 className="font-display text-xl font-semibold">
+                    {item.url ? (
+                      <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-neon-cyan transition-colors">
+                        {item.name ?? item.segment}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    ) : (
+                      item.name ?? item.segment
+                    )}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-0.5">{item.segment}</p>
+                </div>
                 <span className="font-mono text-xs text-neon-cyan uppercase tracking-wide">{item.plan}</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">

@@ -10,6 +10,7 @@
       { "label": "Serviços", "href": "/#servicos" },
       { "label": "Planos", "href": "/#planos" },
       { "label": "Sobre", "href": "/#sobre" },
+      { "label": "Portfólio", "href": "/#portfolio" },
       { "label": "FAQ", "href": "/#faq" },
       { "label": "Contato", "href": "/#contato" }
     ],
@@ -111,6 +112,8 @@
     "subtitle": "Nem tudo que entregamos pode ser exibido em detalhe (sigilo de cliente), mas isso é um projeto real, não um mockup.",
     "cases": [
       {
+        "name": "Conjura",
+        "url": "https://conjura.vercel.app/",
         "segment": "LegalTech / EdTech Jurídico",
         "focus": "Proteção digital infantil (ECA Digital)",
         "audience": "Famílias e escolas",

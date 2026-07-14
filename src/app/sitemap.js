@@ -14,7 +14,7 @@ export default function sitemap() {
     })),
     { path: '/planos', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/sobre', priority: 0.7, changeFrequency: 'monthly' },
-    // { path: '/portfolio', priority: 0.7, changeFrequency: 'monthly' }, // oculto por enquanto
+    { path: '/portfolio', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/faq', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/contato', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/orcamento', priority: 0.9, changeFrequency: 'monthly' },
