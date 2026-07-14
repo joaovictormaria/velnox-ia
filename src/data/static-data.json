@@ -55,7 +55,7 @@
       },
       {
         "name": "BUSINESS",
-        "price": "R$ 850",
+        "price": "R$ 1000",
         "description": "Site institucional completo",
         "features": ["Até 5 páginas", "Painel administrativo", "SEO avançado", "Integração WhatsApp", "Entrega em 7-15 dias"],
         "highlighted": true,
@@ -63,7 +63,7 @@
       },
       {
         "name": "PREMIUM",
-        "price": "R$ 1.250+",
+        "price": "R$ 1.700+",
         "description": "Plataforma web personalizada",
         "features": ["Páginas ilimitadas", "Sistema completo", "Dashboard personalizado", "Integrações API", "Suporte dedicado"],
         "highlighted": false,
