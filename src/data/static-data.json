@@ -125,7 +125,7 @@
     "plans": [
       {
         "name": "LAUNCH",
-        "price": "R$ 450",
+        "price": "R$ 500",
         "description": "Landing Page de alto impacto",
         "features": ["1 página", "Design responsivo", "SEO básico", "Entrega em 3-5 dias"],
         "highlighted": false,
