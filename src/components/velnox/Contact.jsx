@@ -24,6 +24,13 @@ export default function Contact({ headingLevel = 'h2' }) {
     e.preventDefault();
     if (website) return;
     window.open(buildWhatsappMessageUrl(form), '_blank', 'noopener,noreferrer');
+
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...form, website }),
+    }).catch(() => {});
+
     setSentForm(form);
     setSuccess(true);
     setForm({ name: '', email: '', phone: '', projectType: '', message: '' });
