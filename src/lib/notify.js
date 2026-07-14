@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { WHATSAPP_URL } from '@/lib/contact';
 
 function buildMessage(lead) {
   return [
@@ -29,6 +30,28 @@ async function sendEmailNotification(lead) {
   });
 }
 
+async function sendLeadConfirmationEmail(lead) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey || !lead.email) return;
+
+  const resend = new Resend(apiKey);
+  await resend.emails.send({
+    from: process.env.NOTIFY_EMAIL_FROM || 'onboarding@resend.dev',
+    to: lead.email,
+    subject: 'Recebemos seu contato — VELNOX.IA',
+    text: [
+      `Olá, ${lead.name}!`,
+      '',
+      'Recebemos sua mensagem e em breve alguém do nosso time vai te responder.',
+      '',
+      `Se preferir, também pode falar com a gente direto pelo WhatsApp: ${WHATSAPP_URL}`,
+      '',
+      'Obrigado pelo contato!',
+      'Equipe VELNOX.IA',
+    ].join('\n'),
+  });
+}
+
 async function sendWhatsappNotification(lead) {
   const phone = process.env.CALLMEBOT_PHONE;
   const apikey = process.env.CALLMEBOT_APIKEY;
@@ -39,7 +62,11 @@ async function sendWhatsappNotification(lead) {
 }
 
 export async function notifyNewLead(lead) {
-  const results = await Promise.allSettled([sendEmailNotification(lead), sendWhatsappNotification(lead)]);
+  const results = await Promise.allSettled([
+    sendEmailNotification(lead),
+    sendWhatsappNotification(lead),
+    sendLeadConfirmationEmail(lead),
+  ]);
   for (const result of results) {
     if (result.status === 'rejected') {
       console.error('Lead notification failed:', result.reason);
