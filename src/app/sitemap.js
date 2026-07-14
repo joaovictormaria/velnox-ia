@@ -1,5 +1,6 @@
 import data from '@/data/static-data.json';
 import { SITE_URL } from '@/lib/seo';
+import { getAllPosts } from '@/lib/blog';
 
 export default function sitemap() {
   const lastModified = new Date();
@@ -20,12 +21,22 @@ export default function sitemap() {
     { path: '/orcamento', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/privacidade', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/termos', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/blog', priority: 0.7, changeFrequency: 'weekly' },
   ];
 
-  return routes.map((route) => ({
+  const staticEntries = routes.map((route) => ({
     url: route.path === '/' ? SITE_URL : `${SITE_URL}${route.path}`,
     lastModified,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
+
+  const blogEntries = getAllPosts().map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }

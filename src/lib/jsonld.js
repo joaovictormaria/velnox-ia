@@ -89,6 +89,20 @@ export function offerCatalogSchema(plans) {
   };
 }
 
+export function articleSchema(post) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+  };
+}
+
 export function faqSchema(items) {
   return {
     '@context': 'https://schema.org',
