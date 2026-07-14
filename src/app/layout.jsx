@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import '@/app/globals.css';
 import HashScrollFix from '@/components/HashScrollFix';
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
         <HashScrollFix />
         {children}
         <WhatsappFloatButton />
+        <Analytics />
       </body>
     </html>
   );
