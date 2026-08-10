@@ -1,0 +1,385 @@
+{
+  "brand": {
+    "name": "VELNOX",
+    "suffix": ".IA",
+    "tagline": "Geschwindigkeit schläft nie."
+  },
+  "nav": {
+    "links": [
+      { "label": "Start", "href": "/#inicio" },
+      { "label": "Leistungen", "href": "/#servicos" },
+      { "label": "Pakete", "href": "/#planos" },
+      { "label": "Über uns", "href": "/#sobre" },
+      { "label": "Portfolio", "href": "/#portfolio" },
+      { "label": "Blog", "href": "/blog" },
+      { "label": "FAQ", "href": "/#faq" },
+      { "label": "Kontakt", "href": "/#contato" }
+    ],
+    "cta": "Kontakt aufnehmen"
+  },
+  "hero": {
+    "badge": "Geschwindigkeit schläft nie",
+    "description": "Hochleistungs-Webentwicklung. Wir verwandeln Ideen in digitale Plattformen, die Ihr Unternehmen voranbringen.",
+    "primaryCta": "Pakete ansehen",
+    "secondaryCta": "Projekt starten",
+    "stats": [
+      { "value": "3-5", "label": "Tage bis zum Start" },
+      { "value": "100%", "label": "responsiv" },
+      { "value": "24/7", "label": "engagierter Support" }
+    ]
+  },
+  "services": {
+    "headingPrefix": "Unsere",
+    "headingHighlight": "Leistungen",
+    "subtitle": "Komplettlösungen für die digitale Präsenz Ihres Unternehmens.",
+    "items": [
+      {
+        "icon": "Code", "title": "Webentwicklung", "description": "Websites und Systeme mit moderner Technologie und sauberem Code entwickelt.", "slug": "desenvolvimento-web", "relatedPlan": "BUSINESS", "relatedFaqIndex": 3,
+        "details": {
+          "explanation": "Individuelle Unternehmenswebsites und Websysteme, gebaut mit echtem Quellcode in React und Next.js — nicht auf einem generischen Page-Builder zusammengesetzt. Das bedeutet volle Freiheit über Struktur, Performance und Integrationen, ohne an die Grenzen einer Drittanbieter-Plattform gebunden zu sein.",
+          "benefits": [
+            "Messbare Performance, nicht nur versprochen — dieselben Core Web Vitals, die jedes Audit-Tool überprüfen kann",
+            "Admin-Panel, um Texte, Fotos und Inhalte aktuell zu halten, ohne für jede Änderung einen Entwickler zu brauchen",
+            "SEO-fertige Struktur schon beim ersten Commit (Sitemap, Metadaten, strukturierte Daten), nicht nachträglich angeflickt"
+          ],
+          "process": ["Briefing und Scope-Definition", "Content-Struktur und Seiten-Prototyp", "Entwicklung in React/Next.js", "Tests und Anpassungen mit dem Kunden", "Launch und Schulung zum Admin-Panel"],
+          "useCases": ["Unternehmenswebsite für Firmen, die einen professionellen Online-Auftritt brauchen", "Portal mit Login und geschütztem Bereich für Kunden oder Team", "Individuelles internes System für einen bestimmten Geschäftsprozess"],
+          "differentiators": ["Lieferung in echtem Quellcode, kein Builder-Vendor-Lock-in", "Performance mit öffentlichen Tools überprüfbar (Lighthouse, PageSpeed)", "Direkter Support per WhatsApp während und nach der Lieferung, ohne Ticket-Warteschlange"]
+        }
+      },
+      {
+        "icon": "Rocket", "title": "Landingpages", "description": "Wirkungsvolle Seiten mit Fokus auf Konversion und Lead-Gewinnung.", "slug": "landing-pages", "relatedPlan": "LAUNCH", "relatedFaqIndex": 1,
+        "details": {
+          "explanation": "Eine einzige Seite, aufgebaut um genau ein Ziel: einen Lead gewinnen, ein Produkt verkaufen oder eine Kampagne validieren. Kein Menü, das die Aufmerksamkeit zerstreut, keine Abschnitte, die der Konversion nicht helfen — jedes Element der Seite existiert, um den Besucher zur Aktion zu führen.",
+          "benefits": [
+            "Schnelles Laden, damit bezahlter Traffic nicht schon beim Einstieg verloren geht",
+            "Struktur speziell auf Konversion ausgelegt, nicht nur auf gutes Aussehen",
+            "Ergebnis einfach messbar — eine Seite, ein Ziel, eine Kennzahl zum Verfolgen"
+          ],
+          "process": ["Definition des einzigen Seitenziels", "Copy und Struktur auf Konversion ausgerichtet", "Design und Entwicklung", "Integration mit WhatsApp oder Erfassungsformular", "Launch"],
+          "useCases": ["Landingpage für eine bezahlte Traffic-Kampagne", "Launch eines bestimmten Produkts oder Info-Produkts", "Lead-Gewinnung für ein Event oder Webinar"],
+          "differentiators": ["Schnellste Lieferung im Katalog (3-5 Werktage)", "Fokus auf einen einzigen CTA, ohne Ablenkung", "Für Performance optimiert, damit keine Konversionen durch langsames Laden verloren gehen"]
+        }
+      },
+      {
+        "icon": "Layout", "title": "Web-Plattformen", "description": "Vollständige, individuelle Systeme, mit denen Ihr Unternehmen skalieren kann.", "slug": "plataformas-web", "relatedPlan": "PREMIUM", "relatedFaqIndex": 0,
+        "details": {
+          "explanation": "Vollständige, individuelle Websysteme — Dashboards, Portale mit mehreren Nutzerrollen, digitale Produkte in der Frühphase. Gebaut mit einer Architektur, die mit dem Unternehmen mitwachsen soll, statt bei den ersten Erweiterungen komplett neu geschrieben werden zu müssen.",
+          "benefits": [
+            "Architektur, die Wachstum verträgt, ohne später neu anfangen zu müssen",
+            "Individuelle Integrationen für den tatsächlichen Geschäftsablauf, keine generische Konfiguration",
+            "Volle Kontrolle darüber, was gebaut wird und wie es sich weiterentwickelt"
+          ],
+          "process": ["Anforderungsaufnahme und Architekturdefinition", "Prototyping der Hauptabläufe", "Entwicklung nach Modulen", "Tests und QA", "Deployment und Betreuung nach dem Launch"],
+          "useCases": ["Internes Management- oder Kennzahlen-Dashboard", "Portal mit mehreren Nutzerrollen (Kunde, Admin, Team)", "Digitales Produkt (SaaS) in der Frühphase zur Marktvalidierung"],
+          "differentiators": ["Moderner Stack (React, Next.js, FastAPI, PostgreSQL, Docker)", "Individueller Scope, keine erzwungene Anpassung eines fertigen Templates", "Direkte Abstimmung mit demjenigen, der das System tatsächlich entwickelt"]
+        }
+      },
+      {
+        "icon": "Search", "title": "SEO & Performance", "description": "Suchmaschinenoptimierung und maximale Geschwindigkeit.", "slug": "seo-performance", "relatedPlan": null, "relatedFaqIndex": 6,
+        "details": {
+          "explanation": "Technische SEO- und Performance-Optimierung — für eine neue oder bereits bestehende Website. Deckt alles ab, von der Indexierungsstruktur (Sitemap, Robots, strukturierte Daten) bis zur echten Ladeperformance, gemessen mit denselben Tools, die Google zur Bewertung der Website nutzt.",
+          "benefits": [
+            "Mehr organische Sichtbarkeit, ohne nur auf bezahlte Werbung zu setzen",
+            "Schnelleres Laden reduziert die Absprungrate",
+            "Struktur sowohl für klassische Suchmaschinen als auch für KI-generierte Antworten vorbereitet"
+          ],
+          "process": ["Technisches Audit der aktuellen Website", "Behebung von Indexierungs- und Performance-Problemen", "Implementierung strukturierter Daten (Schema.org)", "Bild- und Ladeoptimierung", "Ergebnisverfolgung mit echten Kennzahlen"],
+          "useCases": ["Bestehende Website, die bei Google nicht gefunden wird", "Unternehmenswebsite oder E-Commerce mit langsamem Laden", "Unternehmen, das für Kontaktanfragen auf organische Suche angewiesen ist"],
+          "differentiators": ["Audit direkt am echten Code durchgeführt, nicht nur ein generischer automatischer Bericht", "Korrekturen vom Entwickler selbst umgesetzt, ohne Mittelsperson", "Betreuung mit überprüfbaren Kennzahlen (Lighthouse, Search Console)"]
+        }
+      },
+      {
+        "icon": "Server", "title": "Hosting & Infrastruktur", "description": "Premium-Server mit SSL, Backups und 24/7-Monitoring.", "slug": "hospedagem-infra", "relatedPlan": null, "relatedAddon": "Hospedagem Premium", "relatedFaqIndex": 2,
+        "details": {
+          "explanation": "Verwaltetes Hosting mit SSL-Zertifikat, automatischen Backups und kontinuierlichem Monitoring — ohne dass Sie Server, DNS oder Infrastrukturkonfiguration verstehen müssen.",
+          "benefits": [
+            "Website vom ersten Tag an live mit HTTPS",
+            "Automatisches Backup, damit bei Problemen nichts verloren geht",
+            "Direkter Support bei Ausfällen, ohne generische Callcenter-Warteschlange"
+          ],
+          "process": ["Domain- und DNS-Einrichtung", "Deployment mit SSL-Zertifikat", "Einrichtung automatischer Backups", "Kontinuierliches Monitoring"],
+          "useCases": ["Sie haben bereits eine Website, aber das aktuelle Hosting ist instabil oder langsam", "Sie starten Ihre erste Website und wollen sich nicht um Infrastruktur kümmern", "Migration von einem alten Hosting ohne Ausfallzeit"],
+          "differentiators": ["Direkter Support, keine generischen Callcenter-Tickets", "Infrastruktur auf demselben Stack wie in der Entwicklung, keine Kompatibilitäts-Workarounds", "Aktives, nicht reaktives Monitoring"]
+        }
+      },
+      {
+        "icon": "Cpu", "title": "Integrationen & APIs", "description": "Verbinden Sie Ihre Website mit Zahlungen, CRMs und externen Tools.", "slug": "integracoes-apis", "relatedPlan": null, "relatedAddon": "Integrações API", "relatedFaqIndex": 5,
+        "details": {
+          "explanation": "Die Website mit den Tools verbinden, die das Unternehmen bereits nutzt — Zahlungen, CRM, WhatsApp, Tabellen — damit Daten automatisch fließen, statt von Hand von einem System ins andere kopiert zu werden.",
+          "benefits": [
+            "Weniger manuelle Arbeit durch erneute Dateneingabe zwischen Systemen",
+            "Die Website wird Teil des Vertriebs- oder Support-Ablaufs, statt isoliert zu bleiben",
+            "Keine Abhängigkeit von einem generischen Plugin, das bei jedem Update kaputtgeht"
+          ],
+          "process": ["Erfassung bestehender Tools und Abläufe", "Definition der Integrationsart (API, Webhook, Automatisierung)", "Entwicklung und Tests", "Validierung mit echten Daten vor der Aktivierung", "Betreuung nach der Lieferung"],
+          "useCases": ["Zahlungen direkt auf der Website empfangen", "Einen Lead automatisch ans CRM senden, sobald das Formular abgeschickt wird", "Ein Formular mit einer Tabelle oder einem internen System verbinden"],
+          "differentiators": ["Individuelle Integration für den tatsächlichen Geschäftsablauf, keine generische Plugin-Konfiguration", "Vor der Lieferung mit echten Daten getestet, nicht nur in einer Beispielumgebung", "Support, um die Integration anzupassen, wenn sich der Geschäftsablauf ändert"]
+        }
+      }
+    ]
+  },
+  "pricing": {
+    "headingPrefix": "Pakete &",
+    "headingHighlight": "Preise",
+    "subtitle": "Wählen Sie das ideale Paket für Ihr Projekt. Jedes wird an Ihren Bedarf angepasst.",
+    "plans": [
+      {
+        "name": "LAUNCH",
+        "price": "R$ 500",
+        "description": "Wirkungsvolle Landingpage",
+        "features": ["1 Seite", "Responsives Design", "Basis-SEO", "Lieferung in 3-5 Tagen"],
+        "highlighted": false,
+        "projectType": "Landing Page (Launch)"
+      },
+      {
+        "name": "BUSINESS",
+        "price": "R$ 1000",
+        "description": "Komplette Unternehmenswebsite",
+        "features": ["Bis zu 5 Seiten", "Admin-Panel", "Erweitertes SEO", "WhatsApp-Integration", "Lieferung in 7-15 Tagen"],
+        "highlighted": true,
+        "projectType": "Site Institucional (Business)"
+      },
+      {
+        "name": "PREMIUM",
+        "price": "R$ 1.700+",
+        "description": "Individuelle Web-Plattform",
+        "features": ["Unbegrenzte Seiten", "Komplettsystem", "Individuelles Dashboard", "API-Integrationen", "Dedizierter Support"],
+        "highlighted": false,
+        "projectType": "Plataforma Web (Premium)"
+      },
+      {
+        "name": "MVP",
+        "price": "R$ 2.500+",
+        "description": "Für startbereite Startups",
+        "features": ["Minimum Viable Product", "Vollständige Entwicklung", "Investorenbereit", "Skalierbar", "Produktberatung"],
+        "highlighted": false,
+        "projectType": "MVP para Startup"
+      }
+    ],
+    "addons": [
+      {
+        "icon": "Server",
+        "name": "Hospedagem Premium",
+        "price": "R$ 185/Monat",
+        "features": ["24/7-Server", "SSL inklusive", "Automatische Backups", "Dedizierter Support"]
+      },
+      {
+        "icon": "Plug",
+        "name": "Integrações API",
+        "price": "Auf Anfrage",
+        "features": ["Online-Zahlungen", "CRM", "Automatisierung", "Individuelle APIs"]
+      }
+    ]
+  },
+  "about": {
+    "headingPrefix": "Über",
+    "headingHighlight": "VELNOX.IA",
+    "breakdownIntro": "Wissen Sie, was VELNOX bedeutet?",
+    "vel": { "word": "VEL", "label": "Geschwindigkeit", "icon": "Zap" },
+    "nox": { "word": "NOX", "label": "Nacht (Latein)", "icon": "Moon" },
+    "quote": "Geschwindigkeit schläft nie.",
+    "values": [
+      { "icon": "Target", "title": "Mission", "text": "Zugang zu modernster Technologie für Unternehmen jeder Größe demokratisieren." },
+      { "icon": "Eye", "title": "Vision", "text": "Referenz für innovative, hochperformante Webentwicklung in Brasilien sein." },
+      { "icon": "Heart", "title": "Werte", "text": "Geschwindigkeit, Innovation, Transparenz und Engagement für echte Ergebnisse." }
+    ],
+    "founder": {
+      "name": "João Victor Rodrigues",
+      "role": "Fullstack-Entwickler",
+      "bio": [
+        "Ich bin Full-Stack-Entwickler mit praktischer Erfahrung in React, Next.js, TypeScript und Python. Ich arbeite an neuen Funktionen, der Integration von REST-APIs, Code-Refactoring und Bugfixing — stets mit Fokus auf Performance, Struktur und eine gute Nutzererfahrung.",
+        "Ich war als Front-End-Entwickler bei Pawkeepr tätig, einer intelligenten Plattform für Haustiermanagement, und habe dort in einem Remote-Team an der Entwicklung und kontinuierlichen Weiterentwicklung des Produkts mitgewirkt. Ich habe einen Abschluss in Systemanalyse und -entwicklung und absolviere derzeit einen postgradualen Studiengang in Data Science und Künstlicher Intelligenz.",
+        "Ich nutze KI-Werkzeuge wie Claude Code, um Refactorings zu beschleunigen, die Produktivität zu steigern und die Softwareentwicklung zu unterstützen — kombiniert mit solider Engineering-Praxis, um robuste, skalierbare und produktionsreife Systeme zu liefern."
+      ],
+      "linkedin": "https://www.linkedin.com/in/joão-victor-rodrigues-nascimento-8b9aa11b1/",
+      "github": "https://github.com/joaovictormaria",
+      "instagram": "https://www.instagram.com/victor.rodrigues.j"
+    }
+  },
+  "portfolio": {
+    "headingPrefix": "Echte",
+    "headingHighlight": "Projekte",
+    "subtitle": "Nicht alles, was wir liefern, kann im Detail gezeigt werden (Kundenvertraulichkeit), aber dies ist ein echtes Projekt, kein Mockup.",
+    "cases": [
+      {
+        "name": "Conjura",
+        "url": "https://www.conjura.com.br/",
+        "segment": "LegalTech / Rechts-EdTech",
+        "focus": "Digitaler Kinderschutz (brasilianisches ECA Digital)",
+        "audience": "Familien und Schulen",
+        "deliverable": "Unternehmenswebsite",
+        "plan": "Site Institucional (Business)",
+        "timeline": "7 Tage",
+        "note": "Projekt entwickelt im Kontext des brasilianischen Gesetzes Nr. 15.211/2025 (ECA Digital), in Kraft seit dem 17.03.2026."
+      },
+      {
+        "name": "Conform.ia",
+        "url": "https://www.conformia.com.br/",
+        "segment": "GRC / Unternehmens-Compliance",
+        "focus": "KI-gestützte Compliance-Automatisierung und Risikomanagement",
+        "audience": "Unternehmen und Compliance-/Rechtsteams",
+        "deliverable": "Unternehmenswebsite",
+        "plan": "Site Institucional (Business)",
+        "timeline": "7 Tage",
+        "note": "Plattform mit Fokus auf Unternehmensführung, Ende-zu-Ende-Verschlüsselung und Überwachung regulatorischer Risiken."
+      },
+      {
+        "name": "Conform.ia — Web-Plattform",
+        "url": "https://www.conformia.com.br/app",
+        "segment": "SaaS / GRC",
+        "focus": "Dashboard für Diagnosen, Nichtkonformitäten und KI-gestützte Aktionspläne",
+        "audience": "Auditoren und Compliance-Teams",
+        "deliverable": "Web-Plattform",
+        "plan": "Plataforma Web (Premium)",
+        "timeline": "30 Tage",
+        "badgeType": "dev",
+        "note": "In Entwicklung — der Link öffnet ein interaktives Mockup der App."
+      },
+      {
+        "name": "DrKeepr (PawKeepr)",
+        "url": "https://drkeepr.com/sign-in",
+        "segment": "PetTech / Tierärztliche SaaS",
+        "focus": "Elektronische Patientenakte und Verwaltung von Tierarztpraxen",
+        "audience": "Haustierhalter, Tierärzte und Kliniken",
+        "deliverable": "Web-Plattform (Team-Beitrag)",
+        "badgeType": "team",
+        "note": "Plattform, entwickelt von einem Tech-Team; der Gründer von Velnoxia war als Entwickler beteiligt."
+      }
+    ]
+  },
+  "feedbacks": {
+    "headingPrefix": "Was",
+    "headingHighlight": "unsere Kunden sagen",
+    "subtitle": "Erfahrungsberichte von Kunden, die uns bereits beauftragt haben. Und von Kunden, die unsere Arbeit kennen!",
+    "items": [
+      {
+        "name": "Clara Machado",
+        "role": "Rechtsanwältin",
+        "quote": "Velnoxia liefert mit Geschwindigkeit, Sorgfalt und echtem Engagement. Beim Conjura-Projekt brachte das Team wesentliche Verbesserungen für unsere Website ein, dazu wichtige Erkenntnisse, die unsere Performance optimiert haben und sicher hervorragende Ergebnisse bringen werden.",
+        "rating": 5
+      },
+      {
+        "name": "Pedro Feitosa",
+        "role": "Full-Stack-Entwickler",
+        "quote": "Velnoxia zeichnet sich durch exzellente Qualität, Agilität und echtes Engagement für jedes Projekt aus. Bei jeder Lieferung zeigt das Team Hingabe, Liebe zum Detail und großen Professionalismus, damit der Kunde von Anfang bis Ende die bestmögliche Erfahrung macht. Das Ergebnis schafft Vertrauen und übertrifft die Erwartungen. Ich empfehle Velnoxia jedem, der Lösungen mit Exzellenz und Engagement sucht.",
+        "rating": 5
+      },
+      {
+        "name": "Camila de Jesus",
+        "role": "Backend-Entwicklerin",
+        "quote": "Die Arbeit hat unsere Erwartungen vollständig übertroffen. Uns ist heute klar, wie sehr Vertrauen und Professionalität im digitalen Markt einen Unterschied machen — und das zeigte sich in jedem Detail der Leistung. Unsere Marke gewann deutlich mehr Glaubwürdigkeit, die Kommunikation wurde stärker und die Wahrnehmung der Kunden verbesserte sich. Alles wurde mit viel Sorgfalt, Strategie und Liebe zum Detail umgesetzt. Zweifellos eine der besten Entscheidungen, die wir getroffen haben, um die Präsenz unseres Unternehmens zu stärken.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "headingPrefix": "Häufig gestellte",
+    "headingHighlight": "Fragen",
+    "subtitle": "Klären Sie Ihre Fragen zu unseren Leistungen.",
+    "items": [
+      { "q": "Welches Paket soll ich wählen?", "a": "Das hängt von Ihrem Ziel ab. Für eine Erfassungsseite ist Launch ideal. Für Unternehmen, die eine vollständige Website brauchen, Business. Für Plattformen und Systeme, Premium. Und für Startups, MVP." },
+      { "q": "Wie lange dauert die Lieferung?", "a": "Launch wird in 3-5 Werktagen geliefert, Business in 7-15 Werktagen. Premium und MVP variieren je nach Projektumfang." },
+      { "q": "Brauche ich Hosting?", "a": "Ja! Hosting ist der Ort, an dem Ihre Website im Internet verfügbar ist. Wir bieten Premium-Hosting für R$ 185/Monat inklusive SSL, Backups und Support." },
+      { "q": "Kann ich meine Website selbst bearbeiten?", "a": "Ja! Bei den Paketen Business und Premium haben Sie ein Admin-Panel, um Texte und Fotos zu ändern und Inhalte zu verwalten, ohne auf Code angewiesen zu sein." },
+      { "q": "Was ist ein MVP?", "a": "MVP steht für Minimum Viable Product. Es ist eine funktionsfähige Version Ihres Produkts, mit der Sie Ihre Idee schnell und kostengünstig am Markt validieren können — ideal für Startups." },
+      { "q": "Wie funktioniert die Bezahlung?", "a": "Die Zahlung teilt sich in zwei Teile: die einmalige Entwicklungsinvestition und das monatliche Hosting. Wir akzeptieren PIX, Karte und Zahlschein (Boleto)." },
+      { "q": "Wird meine Website bei Google gefunden?", "a": "Ja! Alle unsere Websites werden mit einer SEO-fertigen Struktur entwickelt, inklusive Sitemap, optimierten Tags und Performance im Einklang mit Googles Web Vitals." },
+      { "q": "Funktioniert die Website auf dem Handy?", "a": "Ja! Alle unsere Websites sind 100% responsiv und funktionieren einwandfrei auf Desktops, Tablets und Smartphones." },
+      { "q": "Was, wenn ich nach der Lieferung Anpassungen brauche?", "a": "Kleine Anpassungen im im Angebot vereinbarten Rahmen sind während des Lieferzeitraums inbegriffen. Änderungen außerhalb des ursprünglichen Umfangs (neue Seiten, zusätzliche Funktionen) werden separat kalkuliert." }
+    ]
+  },
+  "contact": {
+    "headingPrefix": "Bereit",
+    "headingHighlight": "loszulegen?",
+    "subtitle": "Fordern Sie ein Angebot an — wir antworten so schnell wie möglich.",
+    "projectTypes": [
+      "Landing Page (Launch)",
+      "Site Institucional (Business)",
+      "Plataforma Web (Premium)",
+      "MVP para Startup",
+      "Hosting",
+      "API-Integrationen",
+      "Sonstiges"
+    ],
+    "submitLabel": "Weiter zu WhatsApp",
+    "successTitle": "Fast geschafft!",
+    "successText": "Wir haben WhatsApp mit Ihrer fertigen Nachricht geöffnet. Falls es sich nicht automatisch geöffnet hat, klicken Sie auf die Schaltfläche unten.",
+    "resendLabel": "Erneut ausfüllen",
+    "whatsappCtaLabel": "WhatsApp öffnen",
+    "whatsapp": { "number": "5579974007193", "label": "WhatsApp", "sublabel": "Schnelle Antwort" },
+    "email": "velnoxx.ia@gmail.com",
+    "instagram": { "handle": "velnox_ia", "label": "Instagram" }
+  },
+  "budget": {
+    "headingPrefix": "Sprechen wir über",
+    "headingHighlight": "Ihr Projekt",
+    "subtitle": "Bestätigen Sie das gewählte Paket und erzählen Sie uns mehr Details, damit wir Ihr Angebot vorbereiten können.",
+    "planSummaryLabel": "Gewähltes Paket",
+    "changePlanLabel": "Paket wechseln",
+    "noPlanTitle": "Kein Paket ausgewählt",
+    "noPlanText": "Wählen Sie ein Paket, um fortzufahren, oder füllen Sie die Angaben unten trotzdem aus.",
+    "backToPlans": "Pakete ansehen",
+    "messageLabel": "Erzählen Sie uns mehr darüber, was Sie sich für dieses Projekt wünschen",
+    "messagePlaceholder": "Spezifische Funktionen, Referenzen, gewünschter Zeitrahmen, alles andere Wichtige...",
+    "submitLabel": "Weiter zu WhatsApp",
+    "successTitle": "Fast geschafft!",
+    "successText": "Wir haben WhatsApp mit den fertigen Projektdetails geöffnet. Falls es sich nicht automatisch geöffnet hat, klicken Sie auf die Schaltfläche unten.",
+    "whatsappCtaLabel": "WhatsApp öffnen"
+  },
+  "footer": {
+    "copyright": "© 2026 VELNOX.IA — Geschwindigkeit schläft nie. Alle Rechte vorbehalten."
+  },
+  "ui": {
+    "homeLabel": "Start",
+    "nameLabel": "Name *",
+    "namePlaceholder": "Ihr Name",
+    "emailLabel": "E-Mail *",
+    "emailPlaceholder": "sie@email.com",
+    "phoneLabel": "Telefon / WhatsApp",
+    "phonePlaceholder": "(00) 00000-0000",
+    "projectTypeLabel": "Projektart *",
+    "selectPlaceholder": "Bitte wählen...",
+    "contactMessageLabel": "Nachricht *",
+    "contactMessagePlaceholder": "Erzählen Sie uns von Ihrem Projekt...",
+    "consentPrefix": "Mit dem Absenden stimmen Sie unserer",
+    "consentSuffix": " zu",
+    "privacyPolicyLinkText": "Datenschutzerklärung",
+    "termsLinkText": "Nutzungsbedingungen",
+    "emailInfoHeading": "E-Mail",
+    "mobileMenuOpenLabel": "Menü öffnen",
+    "mobileMenuCloseLabel": "Menü schließen",
+    "emailAriaLabel": "E-Mail senden",
+    "talkOnWhatsappAriaLabel": "Auf WhatsApp chatten",
+    "heroRealProjectBadge": "Echtes Projekt geliefert",
+    "heroWhatsappBadge": "Direkter Support per WhatsApp",
+    "heroSeoBadge": "SEO in jedem Paket inklusive",
+    "logoAlt": "Velnox.IA - Das Unmögliche entwickeln",
+    "portfolioNotMockupBadge": "Echtes Projekt, kein Mockup",
+    "portfolioRealCaseLabel": "Echter Fall",
+    "portfolioScreenshotAltTemplate": "Screenshot der Website von {name}",
+    "portfolioDeliveredInPrefix": "Geliefert in ",
+    "portfolioInDevBadge": "In Entwicklung",
+    "portfolioTeamBadge": "Team-Projekt",
+    "mostPopularLabel": "Am Beliebtesten",
+    "chooseLabel": "Auswählen",
+    "aboutPrefix": "Über ",
+    "readMoreLabel": "Mehr erfahren",
+    "allServicesLabel": "Alle Leistungen",
+    "benefitsHeading": "Vorteile",
+    "howItWorksHeading": "So funktioniert es",
+    "useCasesHeading": "Anwendungsfälle",
+    "differentiatorsHeading": "Unterscheidungsmerkmale",
+    "recommendedPlanLabel": "Empfohlenes Paket",
+    "requestQuoteLabel": "Angebot anfordern",
+    "relatedFaqLabel": "Verwandte häufig gestellte Frage",
+    "viewAllFaqLabel": "Alle Fragen ansehen →",
+    "allPostsLabel": "Alle Beiträge",
+    "readArticleLabel": "Artikel lesen",
+    "noPostsLabel": "Noch keine Beiträge veröffentlicht.",
+    "blogHeading": "Blog",
+    "blogSubtitle": "Artikel über Webentwicklung, Performance und Technologie.",
+    "lastUpdatedPrefix": "Zuletzt aktualisiert: ",
+    "legalPtOnlyNotice": "Dieses Dokument ist nur auf Portugiesisch verfügbar, der Sprache der Rechtsordnung (Brasilien), der es unterliegt. Kontaktieren Sie uns, wenn Sie eine Zusammenfassung in Ihrer Sprache wünschen."
+  }
+}
