@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { ArrowRight, Rocket, Zap, ShieldCheck, MessageCircle, Search } from 'lucide-react';
-import velnoxLogo from '@/images/velox.ia_logo.png';
+import velnoxLogo from '@/images/velox.png';
 import veloxBoat from '@/images/VELOX-removebg-preview.png';
 import { getContent } from '@/lib/content';
 
@@ -70,7 +70,7 @@ export default function Hero({ locale }) {
               style={{ animationDelay: '-6s' }}
             />
           </div>
-          <div className="relative z-10 mx-auto aspect-[350/224] w-full max-w-[385px] md:max-w-[450px] lg:max-w-[515px]">
+          <div className="relative z-10 mx-auto aspect-[3000/1782] w-full max-w-[385px] md:max-w-[450px] lg:max-w-[515px]">
             <Image
               src={velnoxLogo}
               alt={ui.logoAlt}
@@ -79,7 +79,7 @@ export default function Hero({ locale }) {
               fetchPriority="high"
               sizes="(max-width: 768px) 385px, (max-width: 1024px) 450px, 515px"
               className="object-cover"
-              style={{ objectPosition: '50% 48.19%' }}
+              style={{ objectPosition: '50% 50%' }}
             />
           </div>
         </div>
