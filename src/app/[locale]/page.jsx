@@ -1,6 +1,5 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import LightningStorm from '@/components/velnox/LightningStorm';
 import Navbar from '@/components/velnox/Navbar';
 import Hero from '@/components/velnox/Hero';
 import Services from '@/components/velnox/Services';
@@ -20,7 +19,6 @@ export default async function Home({ params }) {
 
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
-      <LightningStorm />
       <Navbar locale={locale} />
       <h1 className="sr-only">{data.brand.name}{data.brand.suffix} — {data.brand.tagline}</h1>
       <main>
