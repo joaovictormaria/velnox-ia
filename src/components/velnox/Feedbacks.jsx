@@ -66,7 +66,7 @@ export default function Feedbacks({ headingLevel = 'h2', locale }) {
   const loopItems = [...feedbacks.items, ...feedbacks.items];
 
   return (
-    <section id="feedbacks" className="relative py-16 md:py-24 scroll-mt-20 border-y border-border/60 overflow-hidden">
+    <section id="feedbacks" className="relative py-16 md:py-24 scroll-mt-28 bg-velnox-section-a border-y border-border/60 overflow-hidden">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
           <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">

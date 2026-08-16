@@ -126,7 +126,7 @@
     "plans": [
       {
         "name": "LAUNCH",
-        "price": "R$ 500",
+        "price": "R$ 799",
         "description": "Wirkungsvolle Landingpage",
         "features": ["1 Seite", "Responsives Design", "Basis-SEO", "Lieferung in 3-5 Tagen"],
         "highlighted": false,
@@ -134,7 +134,7 @@
       },
       {
         "name": "BUSINESS",
-        "price": "R$ 1000",
+        "price": "R$ 1.299",
         "description": "Komplette Unternehmenswebsite",
         "features": ["Bis zu 5 Seiten", "Admin-Panel", "Erweitertes SEO", "WhatsApp-Integration", "Lieferung in 7-15 Tagen"],
         "highlighted": true,
@@ -142,7 +142,7 @@
       },
       {
         "name": "PREMIUM",
-        "price": "R$ 1.700+",
+        "price": "R$ 1.799+",
         "description": "Individuelle Web-Plattform",
         "features": ["Unbegrenzte Seiten", "Komplettsystem", "Individuelles Dashboard", "API-Integrationen", "Dedizierter Support"],
         "highlighted": false,
@@ -150,7 +150,7 @@
       },
       {
         "name": "MVP",
-        "price": "R$ 2.500+",
+        "price": "R$ 2.499+",
         "description": "Für startbereite Startups",
         "features": ["Minimum Viable Product", "Vollständige Entwicklung", "Investorenbereit", "Skalierbar", "Produktberatung"],
         "highlighted": false,
@@ -175,6 +175,7 @@
   "about": {
     "headingPrefix": "Über",
     "headingHighlight": "VELNOX.IA",
+    "headingSuffix": "Gründer",
     "breakdownIntro": "Wissen Sie, was VELNOX bedeutet?",
     "vel": { "word": "VEL", "label": "Geschwindigkeit", "icon": "Zap" },
     "nox": { "word": "NOX", "label": "Nacht (Latein)", "icon": "Moon" },
@@ -198,10 +199,21 @@
     }
   },
   "portfolio": {
-    "headingPrefix": "Echte",
-    "headingHighlight": "Projekte",
+    "headingPrefix": "Einige erbrachte",
+    "headingHighlight": "Leistungen",
     "subtitle": "Nicht alles, was wir liefern, kann im Detail gezeigt werden (Kundenvertraulichkeit), aber dies ist ein echtes Projekt, kein Mockup.",
     "cases": [
+      {
+          "name": "Clara Machado Advocacia",
+          "url": "https://www.claramachadoadvocacia.com.br",
+          "segment": "Anwaltskanzlei & Rechtsberatung",
+          "focus": "Wirtschafts-, Energie-, Innovations- und Nachfolgerecht",
+          "audience": "Unternehmen, Startups, Forschungsinstitute und öffentlicher Sektor",
+          "deliverable": "Unternehmenswebsite",
+          "plan": "Unternehmenswebsite (Business)",
+          "timeline": "7 Tage",
+          "note": "Website mit 8 Rechtsgebieten, dem Programm Legal Drive Startups und einem Governance-Hub — LGPD, AI Act, Web3 und SaaS."
+    },
       {
         "name": "Conjura",
         "url": "https://www.conjura.com.br/",
@@ -359,6 +371,9 @@
     "portfolioRealCaseLabel": "Echter Fall",
     "portfolioScreenshotAltTemplate": "Screenshot der Website von {name}",
     "portfolioDeliveredInPrefix": "Geliefert in ",
+
+    "portfolioOpenProjectCta": "Projekt ansehen",
+    "portfolioCloseLabel": "Schließen",
     "portfolioInDevBadge": "In Entwicklung",
     "portfolioTeamBadge": "Team-Projekt",
     "mostPopularLabel": "Am Beliebtesten",

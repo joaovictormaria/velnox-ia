@@ -29,6 +29,10 @@ export default function nextConfig(phase) {
   return {
     images: {
       formats: ['image/avif', 'image/webp'],
+      // O Next 16 so aceita valores de `quality` declarados aqui — qualquer
+      // outro cai no padrao (75) sem erro. 85 e usado nas capas do portfolio,
+      // que sao screenshots com texto miudo, onde 75 deixa artefato visivel.
+      qualities: [75, 85],
     },
     async headers() {
       return [

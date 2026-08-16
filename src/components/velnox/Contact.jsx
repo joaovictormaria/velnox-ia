@@ -37,7 +37,7 @@ export default function Contact({ headingLevel = 'h2', locale }) {
   };
 
   return (
-    <section id="contato" className="relative py-16 md:py-24 scroll-mt-20">
+    <section id="contato" className="relative py-16 md:py-24 scroll-mt-28 bg-velnox-section-a">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">{contact.headingPrefix} <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{contact.headingHighlight}</span></Heading>

@@ -42,7 +42,7 @@ export default function Budget({ selectedPlan = null, locale }) {
   };
 
   return (
-    <section className="relative py-16 md:py-24 scroll-mt-20">
+    <section className="relative py-16 md:py-24 scroll-mt-28 bg-velnox-section-a">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-12">
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">

@@ -6,4 +6,17 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  /* Esconde a barra de rolagem sem desativar a rolagem. Precisa das tres
+     sintaxes: `scrollbar-width` no Firefox, `-ms-overflow-style` no Edge
+     legado e o pseudo-elemento nos motores WebKit/Blink.
+     Nao usar `overflow: hidden` — aquilo travaria a rolagem de verdade. */
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
 }

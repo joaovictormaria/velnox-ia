@@ -70,7 +70,14 @@ export default function RootLayout({ children }) {
       lang="pt-BR"
       className={`scroll-smooth ${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable}`}
     >
-      <body className="bg-background text-foreground font-body bg-fixed bg-[radial-gradient(ellipse_at_top,rgba(0,255,255,0.04),transparent_50%),radial-gradient(ellipse_at_bottom,rgba(255,0,255,0.04),transparent_50%)]">
+      <head>
+        {/* Sem JS o IntersectionObserver nunca roda e as secoes ficariam
+            invisiveis para sempre. Este fallback as mostra de imediato. */}
+        <noscript>
+          <style>{'[data-reveal]{opacity:1 !important;transform:none !important}'}</style>
+        </noscript>
+      </head>
+      <body className="bg-background text-foreground font-body bg-fixed bg-velnox-glow">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}

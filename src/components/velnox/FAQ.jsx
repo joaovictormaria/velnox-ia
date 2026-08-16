@@ -9,7 +9,7 @@ export default function FAQ({ headingLevel = 'h2', locale }) {
   const Heading = headingLevel;
 
   return (
-    <section id="faq" className="relative py-16 md:py-24 scroll-mt-20 border-y border-border/60">
+    <section id="faq" className="relative py-16 md:py-24 scroll-mt-28 bg-velnox-section-b border-y border-border/60">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16">
           <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">

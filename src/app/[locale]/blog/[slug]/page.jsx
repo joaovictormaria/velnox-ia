@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema(post, locale)) }}
       />
-      <article className="relative py-16 md:py-24 scroll-mt-20">
+      <article className="relative py-16 md:py-24 scroll-mt-28 bg-velnox-section-a">
         <div className="max-w-3xl mx-auto px-6">
           <Link href={withLocale(locale, '/blog')} className="inline-flex items-center gap-1.5 text-sm text-neon-cyan hover:underline mb-8">
             <ArrowLeft className="w-4 h-4" /> {ui.allPostsLabel}
