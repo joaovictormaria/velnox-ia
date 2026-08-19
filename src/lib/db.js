@@ -51,6 +51,60 @@ export async function recordPageView({ path, country }) {
   `;
 }
 
+export const TESTIMONIAL_STATUSES = ['pendente', 'aprovado', 'rejeitado'];
+
+export async function createTestimonial({ name, role, quote, rating, photo, locale, ipHash }) {
+  const rows = await sql`
+    INSERT INTO testimonials (name, role, quote, rating, photo, locale, ip_hash)
+    VALUES (${name}, ${role ?? null}, ${quote}, ${rating}, ${photo ?? null}, ${locale ?? null}, ${ipHash ?? null})
+    RETURNING id
+  `;
+  return rows[0].id;
+}
+
+/**
+ * Quantos depoimentos a mesma origem mandou na ultima hora. E o freio contra
+ * envio em massa: sem estado em memoria, que nao sobrevive ao serverless.
+ */
+export async function countRecentTestimonialsByIp(ipHash) {
+  if (!ipHash) return 0;
+  const [{ count }] = await sql`
+    SELECT COUNT(*)::int AS count
+    FROM testimonials
+    WHERE ip_hash = ${ipHash} AND created_at > now() - INTERVAL '1 hour'
+  `;
+  return count;
+}
+
+/** Somente os aprovados, que sao os que a home publica. */
+export async function getApprovedTestimonials() {
+  return sql`
+    SELECT id, name, role, quote, rating, photo
+    FROM testimonials
+    WHERE status = 'aprovado'
+    ORDER BY created_at DESC
+  `;
+}
+
+export async function getTestimonials() {
+  return sql`SELECT * FROM testimonials ORDER BY created_at DESC`;
+}
+
+export async function updateTestimonialById(id, patch) {
+  const status = patch.status ?? null;
+  const rows = await sql`
+    UPDATE testimonials
+    SET status = COALESCE(${status}, status)
+    WHERE id = ${id}
+    RETURNING *
+  `;
+  return rows[0] ?? null;
+}
+
+export async function deleteTestimonialById(id) {
+  await sql`DELETE FROM testimonials WHERE id = ${id}`;
+}
+
 export async function getVisitStats() {
   const [{ count }] = await sql`SELECT COUNT(*)::int AS count FROM page_views`;
   const byCountry = await sql`

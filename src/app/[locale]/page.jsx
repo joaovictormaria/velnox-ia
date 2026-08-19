@@ -15,6 +15,11 @@ import { getContent } from '@/lib/content';
 
 const Contact = dynamic(() => import('@/components/velnox/Contact'));
 
+// A secao de depoimentos le do banco os que foram aprovados no /admin. ISR em
+// vez de render por requisicao: o resto da home e estatico, e a aprovacao ja
+// dispara `revalidatePath` — este prazo e so a rede de seguranca.
+export const revalidate = 300;
+
 export default async function Home({ params }) {
   const { locale } = await params;
   const data = getContent(locale);

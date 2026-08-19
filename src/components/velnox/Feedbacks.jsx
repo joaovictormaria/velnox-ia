@@ -1,76 +1,69 @@
 import React from 'react';
-import Image from 'next/image';
-import { Star, Quote } from 'lucide-react';
+import FeedbackCard from './feedbacks/FeedbackCard';
+import FeedbackConstellation from './feedbacks/FeedbackConstellation';
+import FeedbackForm from './feedbacks/FeedbackForm';
 import { getContent } from '@/lib/content';
-import claraMachadoPhoto from '@/images/feedbacks/clara-machado.jpeg';
-import pedroFeitosaPhoto from '@/images/feedbacks/pedro-feitosa.jpeg';
-import camilaDeJesusPhoto from '@/images/feedbacks/camila-de-jesus.png';
+import { getApprovedTestimonials } from '@/lib/db';
 
-const PHOTOS = {
-  'Clara Machado': claraMachadoPhoto,
-  'Pedro Feitosa': pedroFeitosaPhoto,
-  'Camila de Jesus': camilaDeJesusPhoto,
-};
-
-function initials(name) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase();
-}
-
-function FeedbackCard({ item }) {
-  const photo = PHOTOS[item.name];
-  return (
-    <div className="group relative bg-card/50 backdrop-blur-xl border border-border p-4 rounded-xl flex flex-col shrink-0 w-72 sm:w-80 transition-all duration-300 hover:border-neon-cyan/40 hover:shadow-[0_0_25px_rgba(0,255,255,0.08),0_0_50px_rgba(255,0,255,0.05)]">
-      <div className="flex items-center justify-between mb-3">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-neon-cyan/20 to-neon-magenta/20 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-          <Quote className="w-4 h-4 text-neon-cyan" />
-        </div>
-        {item.rating && (
-          <div className="flex items-center gap-0.5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                className={`w-3 h-3 ${i < item.rating ? 'text-neon-cyan fill-neon-cyan' : 'text-muted-foreground'}`}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-      <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">&ldquo;{item.quote}&rdquo;</p>
-      <div className="flex items-center gap-2.5 pt-3 border-t border-border/60">
-        <div className="relative w-9 h-9 rounded-full overflow-hidden border border-neon-cyan/30 shrink-0 bg-card flex items-center justify-center">
-          {photo ? (
-            <Image src={photo} alt={item.name} fill sizes="36px" className="object-cover" />
-          ) : (
-            <span className="text-xs font-semibold text-neon-cyan">{initials(item.name)}</span>
-          )}
-        </div>
-        <div>
-          <div className="text-sm font-semibold text-foreground">{item.name}</div>
-          <div className="text-xs text-muted-foreground">{item.role}</div>
-        </div>
-      </div>
-    </div>
-  );
+/**
+ * Depoimentos aprovados no /admin. O try/catch nao e zelo excessivo: este
+ * componente e renderizado no `next build`, e ali o DATABASE_URL pode nao
+ * existir ainda. Sem banco a secao cai nos depoimentos fixos do JSON em vez de
+ * derrubar a home inteira.
+ */
+async function loadApproved() {
+  try {
+    return await getApprovedTestimonials();
+  } catch {
+    return [];
+  }
 }
 
 /** @param {{ headingLevel?: 'h1' | 'h2', locale: string }} props */
-export default function Feedbacks({ headingLevel = 'h2', locale }) {
+export default async function Feedbacks({ headingLevel = 'h2', locale }) {
   const { feedbacks } = getContent(locale);
   const Heading = headingLevel;
-  const loopItems = [...feedbacks.items, ...feedbacks.items];
+  const approved = await loadApproved();
+  const items = [...feedbacks.items, ...approved];
 
   return (
-    <section id="feedbacks" className="relative py-16 md:py-24 scroll-mt-28 bg-velnox-section-a border-y border-border/60 overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <Heading className="font-display text-4xl md:text-5xl font-bold mb-4">
-            {feedbacks.headingPrefix} {headingLevel === 'h1' ? (
+    // `isolate` para o canvas e os halos ficarem atras do conteudo mas na
+    // frente do fundo da secao: sem contexto de empilhamento proprio, um filho
+    // em z negativo cairia atras do proprio `bg-velnox-section-a`.
+    <section
+      id="feedbacks"
+      className="relative isolate overflow-hidden py-16 md:py-24 scroll-mt-28 bg-velnox-section-a border-y border-border/60"
+    >
+      {/* Halos nas duas cores da marca. O deslocamento fica no wrapper e a
+          animacao no filho: `orb-drift` escreve em `transform`, e um utilitario
+          de translate no mesmo elemento seria sobrescrito no primeiro quadro. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/3">
+          <div
+            className="h-full w-full rounded-full blur-[120px] animate-orb-drift motion-reduce:animate-none"
+            style={{ background: 'radial-gradient(circle, hsl(184 80% 56% / 0.18), transparent 70%)' }}
+          />
+        </div>
+        <div className="absolute bottom-0 right-0 h-[460px] w-[460px] translate-x-1/4 translate-y-1/4">
+          <div
+            className="h-full w-full rounded-full blur-[120px] animate-orb-drift [animation-delay:-7s] motion-reduce:animate-none"
+            style={{ background: 'radial-gradient(circle, hsl(314 94% 53% / 0.16), transparent 70%)' }}
+          />
+        </div>
+      </div>
+
+      <FeedbackConstellation />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neon-cyan/30 bg-card/60 backdrop-blur-sm text-xs font-medium text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-neon-cyan shadow-[0_0_8px_rgba(53,221,233,0.9)]" />
+            {feedbacks.badge}
+          </span>
+
+          <Heading className="font-display text-4xl md:text-5xl font-bold mt-6 mb-4">
+            {feedbacks.headingPrefix}{' '}
+            {headingLevel === 'h1' ? (
               <span className="bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">{feedbacks.headingHighlight}</span>
             ) : (
               <span className="text-neon-cyan">{feedbacks.headingHighlight}</span>
@@ -78,16 +71,19 @@ export default function Feedbacks({ headingLevel = 'h2', locale }) {
           </Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">{feedbacks.subtitle}</p>
         </div>
-      </div>
 
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="group/marquee relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-          <div className="flex w-max gap-4 animate-marquee group-hover/marquee:[animation-play-state:paused]">
-            {loopItems.map((item, index) => (
-              <FeedbackCard key={index} item={item} />
-            ))}
-          </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {items.map((item, index) => (
+            <FeedbackCard
+              key={item.id ?? item.name}
+              item={item}
+              index={index}
+              labels={{ readMore: feedbacks.readMore, readLess: feedbacks.readLess }}
+            />
+          ))}
         </div>
+
+        <FeedbackForm labels={feedbacks.form} locale={locale} />
       </div>
     </section>
   );
