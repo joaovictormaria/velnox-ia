@@ -35,6 +35,9 @@ export default function Footer({ locale }) {
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-center text-sm text-muted-foreground">
           <span>{footer.copyright}</span>
           <div className="flex items-center gap-4">
+            {/* Sem rotulo traduzido de proposito: "Velnox.app" e nome de
+                produto, e nome de produto e igual nos cinco idiomas. */}
+            <Link href={withLocale(locale, '/velnox-app')} className="hover:text-foreground transition-colors">Velnox.app</Link>
             <Link href={withLocale(locale, '/privacidade')} className="hover:text-foreground transition-colors">{ui.privacyPolicyLinkText}</Link>
             <Link href={withLocale(locale, '/termos')} className="hover:text-foreground transition-colors">{ui.termsLinkText}</Link>
           </div>
