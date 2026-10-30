@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Instagram, MessageCircle, Mail } from 'lucide-react';
+import { Instagram, MessageCircle, Mail, ArrowRight } from 'lucide-react';
 import { WHATSAPP_URL, INSTAGRAM_URL, CONTACT_EMAIL } from '@/lib/contact';
 import { getContent, withLocale } from '@/lib/content';
 
@@ -41,6 +41,21 @@ export default function Footer({ locale }) {
             <Link href={withLocale(locale, '/privacidade')} className="hover:text-foreground transition-colors">{ui.privacyPolicyLinkText}</Link>
             <Link href={withLocale(locale, '/termos')} className="hover:text-foreground transition-colors">{ui.termsLinkText}</Link>
           </div>
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <a
+            href="https://portifolio.velnoxia.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-border py-2 pl-4 pr-2 text-xs text-muted-foreground transition-colors hover:border-neon-cyan/50"
+          >
+            <span className="whitespace-nowrap">Site desenvolvido por</span>
+            <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-neon-cyan px-3 py-1.5 font-bold text-black">
+              João Victor Maria
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </a>
         </div>
       </div>
     </footer>
