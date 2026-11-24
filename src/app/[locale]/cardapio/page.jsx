@@ -4,7 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { buildMetadata } from '@/lib/seo';
 import { withLocale } from '@/lib/content';
 
-// Página do cardápio digital (cardapio.velnoxia.com.br). Só em português por ora, como a /velnox-app.
+// Página do cardápio digital (cardapio.velnoxia.com.br). Só em português por ora.
 // Cada item descreve o que o produto faz hoje; cancelamento e reembolso ficam nos Termos de Contratação de lá.
 
 const PRECO = 'R$ 35';

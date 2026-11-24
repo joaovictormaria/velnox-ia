@@ -34,6 +34,13 @@ export default function nextConfig(phase) {
       // que sao screenshots com texto miudo, onde 75 deixa artefato visivel.
       qualities: [75, 85],
     },
+    // Velnox.app foi desativado: a página antiga leva ao cardápio digital.
+    async redirects() {
+      return [
+        { source: '/velnox-app', destination: '/cardapio', permanent: true },
+        { source: '/:locale(en|es|fr|de)/velnox-app', destination: '/:locale/cardapio', permanent: true },
+      ];
+    },
     async headers() {
       return [
         {
