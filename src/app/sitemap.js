@@ -24,6 +24,7 @@ export default function sitemap() {
     })),
     { path: '/planos', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/velnox-app', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/cardapio', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/sobre', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/portfolio', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/faq', priority: 0.7, changeFrequency: 'monthly' },
