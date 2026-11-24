@@ -37,9 +37,6 @@ export default function Footer({ locale }) {
           <span>{footer.copyright}</span>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             {cardapio && <Link href={withLocale(locale, cardapio.href)} className="hover:text-foreground transition-colors">{cardapio.label}</Link>}
-            {/* Sem rotulo traduzido de proposito: "Velnox.app" e nome de
-                produto, e nome de produto e igual nos cinco idiomas. */}
-            <Link href={withLocale(locale, '/velnox-app')} className="hover:text-foreground transition-colors">Velnox.app</Link>
             <Link href={withLocale(locale, '/privacidade')} className="hover:text-foreground transition-colors">{ui.privacyPolicyLinkText}</Link>
             <Link href={withLocale(locale, '/termos')} className="hover:text-foreground transition-colors">{ui.termsLinkText}</Link>
           </div>
