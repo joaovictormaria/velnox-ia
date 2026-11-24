@@ -50,14 +50,15 @@ export default function MosaicBackdrop() {
         <div
           key={row}
           className="absolute flex animate-tile-slide motion-reduce:animate-none will-change-transform"
-          style={{
+          // Variável CSS (--shift) não existe no tipo CSSProperties; o cast só informa o tsc.
+          style={/** @type {React.CSSProperties} */ ({
             top: row * TILE,
             left: 0,
             width: COLS * TILE,
             height: TILE - GAP,
             '--shift': `-${SHIFT}px`,
             animationDuration: `${18 + (row % 5) * 4}s`,
-          }}
+          })}
         >
           {Array.from({ length: COLS }, (_, col) => (
             <div

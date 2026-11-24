@@ -6,7 +6,8 @@ import { getContent, withLocale } from '@/lib/content';
 
 /** @param {{ locale: string }} props */
 export default function Footer({ locale }) {
-  const { brand, footer, ui } = getContent(locale);
+  const { brand, footer, ui, nav } = getContent(locale);
+  const cardapio = nav.links.find((link) => link.href === '/cardapio');
 
   return (
     <footer className="border-t border-border pt-12 pb-24">
@@ -34,7 +35,8 @@ export default function Footer({ locale }) {
 
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-center text-sm text-muted-foreground">
           <span>{footer.copyright}</span>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            {cardapio && <Link href={withLocale(locale, cardapio.href)} className="hover:text-foreground transition-colors">{cardapio.label}</Link>}
             {/* Sem rotulo traduzido de proposito: "Velnox.app" e nome de
                 produto, e nome de produto e igual nos cinco idiomas. */}
             <Link href={withLocale(locale, '/velnox-app')} className="hover:text-foreground transition-colors">Velnox.app</Link>

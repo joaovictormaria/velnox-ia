@@ -9,6 +9,7 @@
       { "label": "Start", "href": "/#inicio" },
       { "label": "Leistungen", "href": "/#servicos" },
       { "label": "Pakete", "href": "/#planos" },
+      { "label": "Speisekarte", "href": "/cardapio", "wide": true },
       { "label": "Über uns", "href": "/#sobre" },
       { "label": "Portfolio", "href": "/#portfolio" },
       { "label": "Blog", "href": "/blog" },

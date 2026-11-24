@@ -9,6 +9,7 @@
       { "label": "Início", "href": "/#inicio" },
       { "label": "Serviços", "href": "/#servicos" },
       { "label": "Planos", "href": "/#planos" },
+      { "label": "Cardápio digital", "href": "/cardapio", "wide": true },
       { "label": "Sobre", "href": "/#sobre" },
       { "label": "Portfólio", "href": "/#portfolio" },
       { "label": "Blog", "href": "/blog" },

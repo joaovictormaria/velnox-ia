@@ -51,7 +51,8 @@ export default function Navbar({ locale }) {
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {nav.links.map((link) => (
-            <Link key={link.href} href={withLocale(locale, link.href)} className="text-base text-muted-foreground hover:text-foreground transition-colors">
+            // "wide": só cabe a partir de 1280px; abaixo disso fica no menu do celular e no rodapé.
+            <Link key={link.href} href={withLocale(locale, link.href)} className={`${link.wide ? 'hidden xl:inline whitespace-nowrap' : ''} text-base text-muted-foreground hover:text-foreground transition-colors`}>
               {link.label}
             </Link>
           ))}
