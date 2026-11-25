@@ -83,9 +83,8 @@
           <li>um identificador de usuário gerado pela Amazon exclusivamente para esta Skill, que não revela seu nome, e-mail ou número de telefone;</li>
           <li>um identificador do dispositivo e informações técnicas da sessão, como idioma e tipo de aparelho.</li>
         </ul>
-        <p>Nome, e-mail, telefone, endereço ou localização só seriam compartilhados com uma Skill se ela solicitasse essa permissão e você a concedesse expressamente no aplicativo Alexa.</p>
-        <p>A Skill usa essas informações apenas durante a interação, para responder ao seu comando, e <strong>não grava</strong> o identificador de usuário nem qualquer outro dado.</p>
-        <div class="pending" role="note"><strong>Pendente de confirmação</strong>(a) Se a Skill solicita alguma permissão adicional ao usuário (nome, e-mail, localização etc.); (b) se ela consulta alguma API ou serviço externo além da plataforma Amazon.</div>
+        <p>A Skill <strong>não solicita nenhuma permissão</strong> adicional. Por isso, ela não tem acesso ao seu nome, e-mail, telefone, endereço ou localização.</p>
+        <p>A Skill usa essas informações apenas durante a interação, para responder ao seu comando, e <strong>não grava</strong> o identificador de usuário nem qualquer outro dado. Ela também <strong>não envia dados a APIs ou serviços externos</strong>: todo o funcionamento ocorre dentro da plataforma Amazon.</p>
 
         <h3>3.3. Hospedagem</h3>
         <p>A Skill é “Alexa-hosted”: seu código é executado em infraestrutura fornecida pela própria Amazon (Amazon Web Services) para Skills da Alexa. Não há outro provedor de hospedagem envolvido.</p>
