@@ -53,8 +53,32 @@ function handleAdmin(request, pathname) {
   return NextResponse.redirect(loginUrl);
 }
 
+// Legal pages of the "Ofício da Imaculada Conceição" Alexa skill, each served at
+// the root of its own subdomain. They're static files in public/ (no root layout,
+// so no analytics/tracker/cookies) — the subdomain only needs to rewrite / to them.
+const ALEXA_LEGAL_HOSTS = {
+  'politica-de-privacidade.velnoxia.com.br': '/alexa/oficio-imaculada/politica-de-privacidade.html',
+  'termos-de-uso.velnoxia.com.br': '/alexa/oficio-imaculada/termos-de-uso.html',
+};
+
+function handleAlexaLegalHost(request, pathname, page) {
+  if (pathname === '/') {
+    const url = request.nextUrl.clone();
+    url.pathname = page;
+    return NextResponse.rewrite(url);
+  }
+  // Any other page path on these hosts has nothing to show — send it to the document.
+  return NextResponse.redirect(new URL('/', request.url));
+}
+
 export function proxy(request) {
   const { pathname } = request.nextUrl;
+
+  const host = request.headers.get('host')?.split(':')[0].toLowerCase();
+  const alexaPage = host && ALEXA_LEGAL_HOSTS[host];
+  if (alexaPage) {
+    return handleAlexaLegalHost(request, pathname, alexaPage);
+  }
 
   if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
     return handleAdmin(request, pathname);
