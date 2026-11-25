@@ -84,11 +84,11 @@
           <li>um identificador do dispositivo e informações técnicas da sessão, como idioma e tipo de aparelho.</li>
         </ul>
         <p>Nome, e-mail, telefone, endereço ou localização só seriam compartilhados com uma Skill se ela solicitasse essa permissão e você a concedesse expressamente no aplicativo Alexa.</p>
-        <div class="pending" role="note"><strong>Pendente de confirmação</strong>Confirmar no código da Skill: (a) se ela solicita alguma permissão adicional ao usuário; (b) se ela grava o identificador de usuário ou outros dados (por exemplo, para lembrar em que parte da oração você parou); (c) se ela consulta alguma API ou serviço externo.</div>
+        <p>A Skill usa essas informações apenas durante a interação, para responder ao seu comando, e <strong>não grava</strong> o identificador de usuário nem qualquer outro dado.</p>
+        <div class="pending" role="note"><strong>Pendente de confirmação</strong>(a) Se a Skill solicita alguma permissão adicional ao usuário (nome, e-mail, localização etc.); (b) se ela consulta alguma API ou serviço externo além da plataforma Amazon.</div>
 
-        <h3>3.3. Dados tratados por terceiros</h3>
-        <p>Além da Amazon, a Skill pode depender da infraestrutura de hospedagem onde seu código é executado.</p>
-        <div class="pending" role="note"><strong>Pendente de confirmação</strong>Onde o código da Skill é executado (Alexa-hosted ou AWS Lambda própria) e se algum outro serviço de terceiros é utilizado.</div>
+        <h3>3.3. Hospedagem</h3>
+        <p>A Skill é “Alexa-hosted”: seu código é executado em infraestrutura fornecida pela própria Amazon (Amazon Web Services) para Skills da Alexa. Não há outro provedor de hospedagem envolvido.</p>
 
         <h3>3.4. Cookies</h3>
         <p>A Skill é um serviço de voz e não utiliza cookies. Esta página também não usa cookies, ferramentas de analytics ou rastreadores.</p>
@@ -106,14 +106,16 @@
 
       <section id="armazenamento" aria-labelledby="h-armazenamento">
         <h2 id="h-armazenamento">5. Armazenamento e segurança</h2>
-        <div class="pending" role="note"><strong>Pendente de confirmação</strong>Se a Skill armazena algum dado (e qual), onde fica armazenado, por quanto tempo, e se os registros técnicos (logs) de execução contêm o identificador do usuário. Esta seção será redigida apenas com base no funcionamento real da Skill.</div>
+        <p>A Skill <strong>não armazena</strong> dados dos usuários: não mantém banco de dados, não guarda histórico de uso e não grava o identificador de usuário. Cada interação é processada e encerrada sem que nenhuma informação sua seja guardada pela Skill.</p>
+        <p>Como em qualquer serviço executado na Amazon Web Services, a infraestrutura pode gerar automaticamente registros técnicos de execução (logs), como horário e resultado de cada chamada. Esses registros ficam no ambiente da Amazon e são consultados apenas para identificar e corrigir erros, nunca para identificar usuários.</p>
+        <p>Os dados tratados pela Amazon (como gravações de voz e dados da conta) são armazenados e protegidos pela própria Amazon, conforme as políticas indicadas na <a href="#amazon">seção 7</a>.</p>
       </section>
 
       <section id="compartilhamento" aria-labelledby="h-compartilhamento">
         <h2 id="h-compartilhamento">6. Compartilhamento de dados</h2>
         <p>O responsável pela Skill não vende, aluga nem cede dados dos usuários a terceiros para fins comerciais ou de marketing.</p>
         <p>O tratamento feito pela Amazon como operadora da plataforma Alexa é de responsabilidade da própria Amazon e segue as políticas dela. Os dados também poderão ser fornecidos a autoridades quando houver obrigação legal ou ordem judicial.</p>
-        <div class="pending" role="note"><strong>Pendente de confirmação</strong>Se existe algum outro compartilhamento, por exemplo com um provedor de hospedagem ou com um serviço externo usado pela Skill.</div>
+        <p>Como a Skill é hospedada na própria infraestrutura da Amazon e não grava dados, não há outro provedor de hospedagem com quem os dados sejam compartilhados.</p>
       </section>
 
       <section id="amazon" aria-labelledby="h-amazon">
