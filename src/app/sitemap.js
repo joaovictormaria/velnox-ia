@@ -13,6 +13,8 @@ function languageAlternates(path) {
 export default function sitemap() {
   const lastModified = new Date();
   const data = getContent(DEFAULT_LOCALE);
+  // Blog sem posts e uma pagina vazia — so entra no sitemap quando houver conteudo.
+  const hasPosts = getAllPosts(DEFAULT_LOCALE).length > 0;
 
   const routes = [
     { path: '/', priority: 1.0, changeFrequency: 'weekly' },
@@ -31,7 +33,7 @@ export default function sitemap() {
     { path: '/orcamento', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/privacidade', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/termos', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/blog', priority: 0.7, changeFrequency: 'weekly' },
+    ...(hasPosts ? [{ path: '/blog', priority: 0.7, changeFrequency: 'weekly' }] : []),
   ];
 
   const staticEntries = LOCALES.flatMap((locale) =>
